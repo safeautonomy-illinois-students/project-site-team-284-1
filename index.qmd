@@ -128,10 +128,9 @@ Currently, we ...
 ## Task Distribution {.section-title}
 
 ::: {.content-text}
-Our three team members will focus on the following tasks
-Agastya:
-Ethan:
-Hyunjun:
+Our three team members will focus on the following tasks. Agastya will focus on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation.
+Ethan will focus on lane following algorithms, gesture detection, and face recognition. 
+Hyunjun will focus on the park-to-drive controller and path planning.
 :::
 
 :::
