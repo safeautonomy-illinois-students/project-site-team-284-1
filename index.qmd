@@ -1,5 +1,5 @@
 ---
-pagetitle: "Your Project Title"
+pagetitle: "Passenger Pickup"
 format:
   html:
     toc: false
@@ -8,23 +8,23 @@ format:
 
 ::: {.hero-section}
 
-# Your Project Title Here {.title}
+# Passenger Pickup {.title}
 
 ::: {.subtitle}
-A catchy one-line description of your project
+A Simple Passenger Collection System Triggered by Gestures
 :::
 
 ::: {.author-list}
 
-[**Author One**](https://example.com)^1^,
-[**Author Two**](https://example.com)^2^,
-[**Author Three**](https://example.com)^1,2^
+[**Agastya Pawate**](https://example.com)^1^,
+[**Ethan Cao**](https://example.com)^1^,
+[**Hyunjun An**](https://example.com)^1^
 
 :::
 
 ::: {.affiliation-list}
 
-^1^University Name,  ^2^Research Lab / Company
+^1^ The University of Illinois Urbana Champaign
 
 :::
 
@@ -70,16 +70,68 @@ A catchy one-line description of your project
 ## Abstract {.section-title}
 
 ::: {.abstract-text}
-Replace this text with your project abstract. Describe the problem you are
+<!-- Replace this text with your project abstract. Describe the problem you are
 solving, the key insight or contribution of your work, and the main results.
 Keep it concise — typically 150–250 words. You can use **bold** and *italic*
-formatting to emphasize key terms.
+formatting to emphasize key terms. -->
 
-For example: We present a novel approach to [task] that achieves
-state-of-the-art results on [benchmark]. Our method leverages [key technique]
-to overcome [limitation of prior work]. Experiments demonstrate that our
+We present a novel approach to collecting passengers that focuses on ease of use and convience. 
+Our method leverages computer vision and path planning
+to overcome the difficulty of app based ride hailing solutions. 
+<!-- Experiments demonstrate that our
 approach outperforms existing methods by [metric improvement] while requiring
-[efficiency gain].
+[efficiency gain]. -->
+:::
+
+:::
+
+::: {.section-container}
+
+## Problem {.section-title}
+
+::: {.content-text}
+The problem of crossing spaces such as parking lots may seem trivial to able bodied individuals, but being able to quickly
+and safely move short distances may be more difficult for those who are disabled. Currently, app based mobility solutions 
+are only designed for traveling longer distances and do not solve the problem of crossing a busy street or parking lot
+
+:::
+
+:::
+
+::: {.section-container}
+
+## Solution {.section-title}
+
+::: {.content-text}
+We propose a solution which utilizes the GEM autonomous vehicle and its ____ capabilities to help move people across a parking lot.
+The GEM vehicle will recognize gestures, and autonomously navigate to the passenger's location. Alternatively, a phone can be used to call the vehicle.
+The vehicle will then bring them to the entrance of the building. When leaving the building the vehicle will automacitally recognize the passenger's face and return them to
+the location which they were picked up from.
+
+:::
+
+:::
+
+::: {.section-container}
+
+## Current Progress {.section-title}
+
+::: {.content-text}
+Currently, we ...
+
+:::
+
+:::
+
+::: {.section-container}
+
+## Task Distribution {.section-title}
+
+::: {.content-text}
+Our three team members will focus on the following tasks
+Agastya:
+Ethan:
+Hyunjun:
 :::
 
 :::
