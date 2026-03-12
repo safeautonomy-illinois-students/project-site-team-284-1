@@ -142,11 +142,11 @@ Hyunjun will focus on the park-to-drive controller and path planning.
 
 ::: {.section-container}
 
-## Video {.section-title}
+## Video of Simulator from Earlier Work {.section-title}
 
 ::: {.video-container}
 <!-- Replace with your YouTube or local video embed -->
-{{< video static/videos/teaser.mp4 >}}
+{{< video static/videos/mp2.webm >}}
 :::
 
 :::
