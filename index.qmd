@@ -52,6 +52,8 @@ A Simple Passenger Collection System Triggered by Gestures
 <!-- Option A: Use a static image as the teaser -->
 ![A block diagram of the modules and required hardware for our project.](static/images/placeholder-teaser.svg){.teaser-img}
 
+![Another view of our project's workflow showing how the order of operations may work in our system.](static/images/diagram1.svg){.diagram-img}
+
 <!-- Option B: Embed a video teaser (uncomment below, comment out image above)
 {{< video static/videos/teaser.mp4 >}}
 -->
