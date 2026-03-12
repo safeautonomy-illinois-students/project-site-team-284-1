@@ -75,7 +75,7 @@ solving, the key insight or contribution of your work, and the main results.
 Keep it concise — typically 150–250 words. You can use **bold** and *italic*
 formatting to emphasize key terms. -->
 
-We present a novel approach to collecting passengers that focuses on ease of use and convience. 
+We present a novel approach to collecting passengers that focuses on ease of use and convenience. 
 Our method leverages computer vision and path planning
 to overcome the difficulty of app based ride hailing solutions. 
 <!-- Experiments demonstrate that our
@@ -92,7 +92,7 @@ approach outperforms existing methods by [metric improvement] while requiring
 ::: {.content-text}
 The problem of crossing spaces such as parking lots may seem trivial to able bodied individuals, but being able to quickly
 and safely move short distances may be more difficult for those who are disabled. Currently, app based mobility solutions 
-are only designed for traveling longer distances and do not solve the problem of crossing a busy street or parking lot
+are only designed for traveling longer distances and do not solve the problem of crossing a busy street or parking lot.
 
 :::
 
@@ -103,10 +103,9 @@ are only designed for traveling longer distances and do not solve the problem of
 ## Solution {.section-title}
 
 ::: {.content-text}
-We propose a solution which utilizes the GEM autonomous vehicle and its ____ capabilities to help move people across a parking lot.
-The GEM vehicle will recognize gestures, and autonomously navigate to the passenger's location. Alternatively, a phone can be used to call the vehicle.
-The vehicle will then bring them to the entrance of the building. When leaving the building the vehicle will automacitally recognize the passenger's face and return them to
-the location which they were picked up from.
+We propose a solution which utilizes the GEM autonomous vehicle and its capabilities to traverse a parking lot while avoiding obstacles on the way to a would-be passenger.
+The GEM vehicle will recognize gestures such as a waving motion and autonomously navigate to the passenger's location. Alternatively, a phone can be used to call the vehicle. 
+Through the use of these measures, we aim to make passenger pickup as seamless and safe as possible.
 
 :::
 
@@ -117,7 +116,8 @@ the location which they were picked up from.
 ## Current Progress {.section-title}
 
 ::: {.content-text}
-Currently, we ...
+Currently, we are in the brainstorming stage of our design process. 
+We have split up the tasks for this project amongst our group members and have run some test code in the simulator as shown below.
 
 :::
 
@@ -146,7 +146,7 @@ Hyunjun will focus on the park-to-drive controller and path planning.
 
 ::: {.video-container}
 <!-- Replace with your YouTube or local video embed -->
-{{< video https://www.youtube.com/embed/cSQTZoZPJzs >}}
+{{< video static/videos/teaser.mp4 >}}
 :::
 
 :::
@@ -156,7 +156,7 @@ Hyunjun will focus on the park-to-drive controller and path planning.
 <!-- RESULTS GALLERY -->
 <!-- ============================================================ -->
 
-::: {.section-container}
+<!-- ::: {.section-container}
 
 ## Results {.section-title}
 
@@ -181,14 +181,14 @@ reader should observe and why it matters.
 
 :::
 
-:::
+::: -->
 
 
 <!-- ============================================================ -->
 <!-- QUALITATIVE COMPARISONS -->
 <!-- ============================================================ -->
 
-::: {.section-container}
+<!-- ::: {.section-container}
 
 ## Qualitative Comparisons {.section-title}
 
@@ -250,7 +250,7 @@ interactive slider here. The example below shows how to set one up.
 
 :::
 
-:::
+::: -->
 
 
 <!-- ============================================================ -->
