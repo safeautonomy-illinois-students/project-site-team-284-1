@@ -284,7 +284,7 @@ Check out [this survey](https://example.com) for a comprehensive overview of the
 ## BibTeX {.section-title}
 
 ```bibtex
-@article{yourname2026project,
+@article{team2842026finalproject,
   author    = {Hyunjun An and Ethan Cao and Agastya Pawate},
   title     = {Passenger Pickup},
   journal   = {ECE 484: Safe Autonomy},
