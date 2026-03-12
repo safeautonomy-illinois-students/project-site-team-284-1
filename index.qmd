@@ -213,14 +213,14 @@ what should the reader look for in the side-by-side results.
 
 :::
 
-:::
+::: -->
 
 
 <!-- ============================================================ -->
 <!-- INTERACTIVE SLIDER (Optional) -->
 <!-- ============================================================ -->
 
-::: {.section-container}
+<!-- ::: {.section-container}
 
 ## Interpolation Demo {.section-title}
 
