@@ -257,7 +257,7 @@ interactive slider here. The example below shows how to set one up.
 <!-- RELATED WORK -->
 <!-- ============================================================ -->
 
-::: {.section-container}
+<!-- ::: {.section-container}
 
 ## Related Work {.section-title}
 
@@ -272,7 +272,7 @@ Here are some related works in this area:
 Check out [this survey](https://example.com) for a comprehensive overview of the field.
 :::
 
-:::
+::: -->
 
 
 <!-- ============================================================ -->
@@ -285,9 +285,9 @@ Check out [this survey](https://example.com) for a comprehensive overview of the
 
 ```bibtex
 @article{yourname2026project,
-  author    = {Author One and Author Two and Author Three},
-  title     = {Your Project Title Here},
-  journal   = {Conference or Journal Name},
+  author    = {Hyunjun An and Ethan Cao and Agastya Pawate},
+  title     = {Passenger Pickup},
+  journal   = {ECE 484: Safe Autonomy},
   year      = {2026},
 }
 ```
