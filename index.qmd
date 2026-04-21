@@ -187,8 +187,7 @@ One of the major changes that we plan to make in the coming days is the centrali
 ## Results {.section-title}
 
 ::: {.content-text}
-Provide a brief description of the results shown below. Explain what the
-reader should observe and why it matters.
+Below are graphs of some of the data we have collected thus far.
 :::
 
 ::: {.results-grid}
