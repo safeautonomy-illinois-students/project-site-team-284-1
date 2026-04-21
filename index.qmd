@@ -164,6 +164,9 @@ We are working on a PID controller to control the speed of the car.
 Our team decided to leverage the modular nature of ROS to divide complex problems into multiple nodes.
 Smaller, less complex nodes allow for easier collaboration, and greater code clarity. 
 
+- Another minor issue we had was with the controller detecting obstacles but failing to brake for them. We found that this was due to the lack of a centralized "stop" topic for nodes to publish to, meaning that driver input could partially override stop commands.
+One of the major changes that we plan to make in the coming days is the centralization of all our submodules' data into common topics that can be read from. This will allow us to implement a priority hierarchy for our system and will be a major step forward towards integrating all modules into a single self-driving setup.
+
 ::: {.section-container}
 
 ::: {.section-container}
