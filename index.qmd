@@ -117,7 +117,7 @@ Using the GPS data from the rosbag, we were able to generate the waypoints.
 :::
 
 ::: {.result-card}
-![Waypoints mapped onto the simulator environment](static/images/sim_waypoint_map.png)
+![Simulation waypoints generated from simulation odometry data](static/images/sim_waypoint_map.png)
 :::
 
 :::
@@ -206,33 +206,50 @@ One of the major changes that we plan to make in the coming days is the centrali
 
 ## Results {.section-title}
 
+:::
+
 ::: {.content-text}
 Below are graphs of some of the data we have collected thus far.
 :::
 
+
+### Obstacle Detection Data
+
+![Comparison of non-pedestrian vs pedestrian LIDAR ROSBAGS with respect to number of obstacle points detected.](static/images/data.png)
+
+
+### Path Planning: Origin to a Random Point on the Road
+
+Starting from the simulation map origin (x=0, y=0, yaw=0), the path planner generates and executes a trajectory to a randomly selected point on the road.
+
 ::: {.results-grid}
 
 ::: {.result-card}
-![Comparison of non-pedestrian vs pedestrian LIDAR ROSBAGS with respect to number of obstacle points detected.](static/images/data.png)
+![Waypoint tracking error along the path](static/images/sim_waypoint_error_path.png)
 :::
 
 ::: {.result-card}
-**Path Planning from Origin (x=0, y=0, yaw=0) of the simulation map to a Random Point on the Road**
-
-![Waypoint tracking error along the path](static/images/sim_waypoint_error_path.png)
-
 ![Distance to goal over time](static/images/sim_dist_to_goal_plot_path.png)
+:::
 
+::: {.result-card}
 ![Steering angle commands during navigation](static/images/sim_steering_angle_path.png)
 :::
 
+:::
+
+
+### Park-to-Drive + Path Planner Handoff
+
+The Park-to-Drive (P2D) controller first maneuvers the vehicle out of an arbitrary parking spot. Once the vehicle reaches the first waypoint of the global path, control is handed over to the path planner, which then guides the vehicle to its final destination.
+
+::: {.results-grid}
+
 ::: {.result-card}
-**Park-to-Drive + Path Planner Handoff: Parking Spot to Destination**
-
-The Park-to-Drive (P2D) controller drives from an arbitrary parking spot to the first waypoint, then hands control over to the global path planner to continue to the destination.
-
 ![Destination requiring a left-turn exit from the parking spot](static/images/p2d_trajectory_metrics_reverse.png)
+:::
 
+::: {.result-card}
 ![Destination requiring a right-turn exit from the parking spot](static/images/p2d_trajectory_metrics.png)
 :::
 
