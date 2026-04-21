@@ -144,12 +144,6 @@ Here is a video of testing obstacle detection in the GEM car
 {{< video static/videos/Obstacle_Detector_Testing.mov >}}
 :::
 
-Here is a graph of a comparison between the graph data for number of obstacle points detected per frame for a non-pedestrian versus pedestrian scenario
-
-::: {.image-container}
-{{< image static/images/data.png > }}
-:::
-
 
 ::: {.section-container}
 ## What Didn't Work {.section-title}
@@ -200,7 +194,7 @@ reader should observe and why it matters.
 ::: {.results-grid}
 
 ::: {.result-card}
-![Result 1 caption](static/images/placeholder-result1.svg)
+![Comparison of non-pedestrian vs pedestrian LIDAR ROSBAGS with respect to number of obstacle points detected.](static/images/data.png)
 :::
 
 ::: {.result-card}
