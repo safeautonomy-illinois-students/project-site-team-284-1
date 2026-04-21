@@ -50,9 +50,8 @@ A Simple Passenger Collection System Triggered by Gestures
 ::: {.hero-teaser}
 
 <!-- Option A: Use a static image as the teaser -->
-![A block diagram of the modules and required hardware for our project.](static/images/placeholder-teaser.svg){.teaser-img}
+![A block diagram of the modules and required hardware for our project.](static/images/blockdiagram.png){.teaser-img}
 
-![Another view of our project's workflow showing how the order of operations may work in our system.](static/images/diagram1.svg){.diagram-img}
 
 <!-- Option B: Embed a video teaser (uncomment below, comment out image above)
 {{< video static/videos/teaser.mp4 >}}
@@ -76,51 +75,12 @@ A Simple Passenger Collection System Triggered by Gestures
 solving, the key insight or contribution of your work, and the main results.
 Keep it concise — typically 150–250 words. You can use **bold** and *italic*
 formatting to emphasize key terms. -->
+We propose a solution which utilizes the GEM autonomous vehicle and its capabilities to traverse a track while avoiding obstacles on the way to a would-be passenger.
+The GEM vehicle will autonomously navigate to the passenger's location after being called through a phone app.
 
-We present a novel approach to collecting passengers that focuses on ease of use and convenience. 
-Our method leverages computer vision and path planning
-to overcome the difficulty of app based ride hailing solutions. 
 <!-- Experiments demonstrate that our
 approach outperforms existing methods by [metric improvement] while requiring
 [efficiency gain]. -->
-:::
-
-:::
-
-::: {.section-container}
-
-## Problem {.section-title}
-
-::: {.content-text}
-The problem of crossing spaces such as parking lots may seem trivial to able bodied individuals, but being able to quickly
-and safely move short distances may be more difficult for those who are disabled. Currently, app based mobility solutions 
-are only designed for traveling longer distances and do not solve the problem of crossing a busy street or parking lot.
-
-:::
-
-:::
-
-::: {.section-container}
-
-## Solution {.section-title}
-
-::: {.content-text}
-We propose a solution which utilizes the GEM autonomous vehicle and its capabilities to traverse a parking lot while avoiding obstacles on the way to a would-be passenger.
-The GEM vehicle will recognize gestures such as a waving motion and autonomously navigate to the passenger's location. Alternatively, a phone can be used to call the vehicle. 
-Through the use of these measures, we aim to make passenger pickup as seamless and safe as possible.
-
-:::
-
-:::
-
-::: {.section-container}
-
-## Current Progress {.section-title}
-
-::: {.content-text}
-Currently, we are in the brainstorming stage of our design process. 
-We have split up the tasks for this project amongst our group members and have run some test code in the simulator as shown below.
-
 :::
 
 :::
@@ -131,23 +91,39 @@ We have split up the tasks for this project amongst our group members and have r
 
 ::: {.content-text}
 Our three team members will focus on the following tasks. Agastya will focus on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation.
-Ethan will focus on lane following algorithms, gesture detection, and face recognition. 
-Hyunjun will focus on the park-to-drive controller and path planning.
+Ethan will focus on lane following algorithms, and system integration.
+Hyunjun will focus on the park-to-drive controller and global path planning.
 :::
 
 :::
 
+## Current Progress {.section-title}
 
-<!-- ============================================================ -->
-<!-- OVERVIEW / METHOD VIDEO -->
-<!-- ============================================================ -->
+::: {.content-text}
+Here is a video of us testing lane detection in the GEM simulator
+:::
+
+::: {.content-text}
+Here is a video of us testing lane detection in the GEM car
+:::
+
+
+::: {.section-container}
+## What Worked and Didn't Work {.section-title}
+::: {.content-text}
+Initially, we tried to reuse the lane segmentation model trained for MP1 to detect lane lines. A mix of cropping and color masking was tried but ultimately did not produce great results. 
+We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistantly detect lane lines.
+:::
+::: {.video-container}
+{{< video static/videos/mp2.webm >}}
+:::
+
 
 ::: {.section-container}
 
-## Video of Simulator from Earlier Work {.section-title}
-
+::: {.section-container}
+## Initial Simulator Setup {.section-title}
 ::: {.video-container}
-<!-- Replace with your YouTube or local video embed -->
 {{< video static/videos/mp2.webm >}}
 :::
 
@@ -158,7 +134,7 @@ Hyunjun will focus on the park-to-drive controller and path planning.
 <!-- RESULTS GALLERY -->
 <!-- ============================================================ -->
 
-<!-- ::: {.section-container}
+::: {.section-container}
 
 ## Results {.section-title}
 
@@ -183,7 +159,7 @@ reader should observe and why it matters.
 
 :::
 
-::: -->
+:::
 
 
 <!-- ============================================================ -->

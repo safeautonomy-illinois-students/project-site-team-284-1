@@ -2,57 +2,57 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Your Project Title Here",
+    "title": "Passenger Pickup",
     "section": "",
-    "text": "A catchy one-line description of your project\n\n\nAuthor One1, Author Two2, Author Three1,2\n\n\n1University Name, 2Research Lab / Company\n\n\n Paper  arXiv  Video  Code  Data"
+    "text": "A Simple Passenger Collection System Triggered by Gestures\n\n\nAgastya Pawate1, Ethan Cao1, Hyunjun An1\n\n\n1 The University of Illinois Urbana Champaign\n\n\n Paper  arXiv  Video  Code  Data"
   },
   {
     "objectID": "index.html#abstract",
     "href": "index.html#abstract",
-    "title": "Your Project Title Here",
+    "title": "Passenger Pickup",
     "section": "Abstract",
-    "text": "Abstract\n\nReplace this text with your project abstract. Describe the problem you are solving, the key insight or contribution of your work, and the main results. Keep it concise — typically 150–250 words. You can use bold and italic formatting to emphasize key terms.\nFor example: We present a novel approach to [task] that achieves state-of-the-art results on [benchmark]. Our method leverages [key technique] to overcome [limitation of prior work]. Experiments demonstrate that our approach outperforms existing methods by [metric improvement] while requiring [efficiency gain]."
+    "text": "Abstract\n\n\nWe propose a solution which utilizes the GEM autonomous vehicle and its capabilities to traverse a track while avoiding obstacles on the way to a would-be passenger. The GEM vehicle will autonomously navigate to the passenger’s location after being called through a phone app."
   },
   {
-    "objectID": "index.html#video",
-    "href": "index.html#video",
-    "title": "Your Project Title Here",
-    "section": "Video",
-    "text": "Video"
+    "objectID": "index.html#task-distribution",
+    "href": "index.html#task-distribution",
+    "title": "Passenger Pickup",
+    "section": "Task Distribution",
+    "text": "Task Distribution\n\nOur three team members will focus on the following tasks. Agastya will focus on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation. Ethan will focus on lane following algorithms, and system integration. Hyunjun will focus on the park-to-drive controller and global path planning."
+  },
+  {
+    "objectID": "index.html#current-progress",
+    "href": "index.html#current-progress",
+    "title": "Passenger Pickup",
+    "section": "Current Progress",
+    "text": "Current Progress\n\nHere is a video of us testing lane detection in the GEM simulator\n\n\nHere is a video of us testing lane detection in the GEM car"
+  },
+  {
+    "objectID": "index.html#what-worked-and-didnt-work",
+    "href": "index.html#what-worked-and-didnt-work",
+    "title": "Passenger Pickup",
+    "section": "What Worked and Didn’t Work",
+    "text": "What Worked and Didn’t Work\n\nInitially, we tried to reuse the lane segmentation model trained for MP1 to detect lane lines. A mix of cropping and color masking was tried but ultimately did not produce great results. We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistantly detect lane lines."
+  },
+  {
+    "objectID": "index.html#initial-simulator-setup",
+    "href": "index.html#initial-simulator-setup",
+    "title": "Passenger Pickup",
+    "section": "Initial Simulator Setup",
+    "text": "Initial Simulator Setup"
   },
   {
     "objectID": "index.html#results",
     "href": "index.html#results",
-    "title": "Your Project Title Here",
+    "title": "Passenger Pickup",
     "section": "Results",
     "text": "Results\n\nProvide a brief description of the results shown below. Explain what the reader should observe and why it matters.\n\n\n\n\n\n\nResult 1 caption\n\n\n\n\n\n\n\nResult 2 caption\n\n\n\n\n\n\n\nResult 3 caption"
   },
   {
-    "objectID": "index.html#qualitative-comparisons",
-    "href": "index.html#qualitative-comparisons",
-    "title": "Your Project Title Here",
-    "section": "Qualitative Comparisons",
-    "text": "Qualitative Comparisons\n\nDescribe the comparison setup — which baselines are you comparing against, and what should the reader look for in the side-by-side results.\n\n\n\n\n\n\nOurs\n\n\nOurs\n\n\n\n\n\nBaseline A\n\n\nBaseline A"
-  },
-  {
-    "objectID": "index.html#interpolation-demo",
-    "href": "index.html#interpolation-demo",
-    "title": "Your Project Title Here",
-    "section": "Interpolation Demo",
-    "text": "Interpolation Demo\n\nIf your method supports interpolation or continuous control, you can add an interactive slider here. The example below shows how to set one up.\n\n\n\n\n\n\nStart\n\n\n\n\n\nEnd\n\n\n\n\n\n50%"
-  },
-  {
-    "objectID": "index.html#related-work",
-    "href": "index.html#related-work",
-    "title": "Your Project Title Here",
-    "section": "Related Work",
-    "text": "Related Work\n\nHere are some related works in this area:\n\nRelated Paper 1 introduces an idea similar to ours for [topic].\nRelated Paper 2 also addresses [problem] using [approach].\nRelated Paper 3 proposes [technique] which is complementary to our method.\n\nCheck out this survey for a comprehensive overview of the field."
-  },
-  {
     "objectID": "index.html#bibtex",
     "href": "index.html#bibtex",
-    "title": "Your Project Title Here",
+    "title": "Passenger Pickup",
     "section": "BibTeX",
-    "text": "BibTeX\n@article{yourname2026project,\n  author    = {Author One and Author Two and Author Three},\n  title     = {Your Project Title Here},\n  journal   = {Conference or Journal Name},\n  year      = {2026},\n}"
+    "text": "BibTeX\n@article{team2842026finalproject,\n  author    = {Hyunjun An and Ethan Cao and Agastya Pawate},\n  title     = {Passenger Pickup},\n  journal   = {ECE 484: Safe Autonomy},\n  year      = {2026},\n}"
   }
 ]
