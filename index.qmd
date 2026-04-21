@@ -113,11 +113,11 @@ Using the GPS data from the rosbag, we were able to generate the waypoints.
 ::: {.results-grid}
 
 ::: {.result-card}
-![Real-world waypoints generated from GPS data](static/images/real_waypoints.png)
+![Real-world waypoints generated from GPS data (105 waypoints)](static/images/real_waypoints.png)
 :::
 
 ::: {.result-card}
-![Simulation waypoints generated from simulation odometry data](static/images/sim_waypoint_map.png)
+![Simulation waypoints generated from simulation odometry data (318 waypoints)](static/images/sim_waypoint_map.png)
 :::
 
 :::
