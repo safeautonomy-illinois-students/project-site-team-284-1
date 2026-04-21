@@ -218,8 +218,29 @@ approach outperforms existing methods by [metric improvement] while requiring
 <h2 class="section-title anchored" data-anchor-id="current-progress">Current Progress</h2>
 </section>
 <p>So far, the team has visited the highbay 2 times to conduct real-world data collection and testing. We collected Rosbags of the stationary car, driving around the track, and people walking in front of a stationary car. We have tested lane detection, lane following, and obstacle detection.</p>
-<p>Here is a video of us testing lane detection in the GEM simulator</p>
-<p>Here is a video of us testing lane detection in the GEM car</p>
+<div class="video-container">
+<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/GEM_Data_Collection.mov"></video></div>
+</div>
+<p>Here is a video of lane detection in the GEM simulator</p>
+<div class="video-container">
+<div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Sim_Lane_Detector.mov"></video></div>
+</div>
+<p>Here is a video of waypoint following in the GEM simulator</p>
+<div class="video-container">
+<div class="quarto-video"><video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Waypoint_Sim.mov"></video></div>
+</div>
+<p>Here is a video of testing lane detection in the GEM car</p>
+<div class="video-container">
+<div class="quarto-video"><video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Lane_Detector_Testing.mov"></video></div>
+</div>
+<p>Here is a video of controlling the GEM car with a gamepad</p>
+<div class="video-container">
+<div class="quarto-video"><video id="video_shortcode_videojs_video6" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Joystick_Driving_Test.mov"></video></div>
+</div>
+<p>Here is a video of testing obstacle detection in the GEM car</p>
+<div class="video-container">
+<div class="quarto-video"><video id="video_shortcode_videojs_video7" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Obstacle_Detector_Testing.mov"></video></div>
+</div>
 <section id="what-didnt-work" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="what-didnt-work">What Didn’t Work</h2>
 </section>
@@ -227,17 +248,17 @@ approach outperforms existing methods by [metric improvement] while requiring
 <li>Initially, we tried to reuse the lane segmentation model trained for MP1 to detect lane lines. A mix of cropping and color masking was tried but ultimately did not produce great results. We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistently detect lane lines.</li>
 </ul>
 <div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/mp2.webm"></video></div>
+<div class="quarto-video"><video id="video_shortcode_videojs_video8" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Lane_Follower_Test.mov"></video></div>
 </div>
 <ul>
-<li><p>To avoid the complexity of interfacing with the PACMod, our code outputs joystick commands on the /joy topic. While this does work to control the car (see video below), we found that the lack of closed loop control made the speed of the car uncontrollable. Most of the time, the car would either be too fast or not move at all. We are working on a PID controller to control the speed of the car. ::: {.video-container} </p><div class="quarto-video"><video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/mp2.webm"></video></div> :::<p></p></li>
+<li><p>To avoid the complexity of interfacing with the PACMod, our code outputs joystick commands on the /joy topic. While this does work to control the car (see video below), we found that the lack of closed loop control made the speed of the car uncontrollable. Most of the time, the car would either be too fast or not move at all. We are working on a PID controller to control the speed of the car.</p></li>
 <li><p>We found that more complex nodes were difficult to develop, as contributors needed to comb through lots of code to understand what was going on within a node. Our team decided to leverage the modular nature of ROS to divide complex problems into multiple nodes. Smaller, less complex nodes allow for easier collaboration, and greater code clarity.</p></li>
 </ul>
 <div class="section-container">
 <section id="initial-simulator-setup" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="initial-simulator-setup">Initial Simulator Setup</h2>
 <div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/mp2.webm"></video></div>
+<div class="quarto-video"><video id="video_shortcode_videojs_video9" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/mp2.webm"></video></div>
 </div>
 </section>
 <!-- ============================================================ -->
@@ -785,6 +806,11 @@ Check out [this survey](https://example.com) for a comprehensive overview of the
 <script>videojs(video_shortcode_videojs_video2);</script>
 <script>videojs(video_shortcode_videojs_video3);</script>
 <script>videojs(video_shortcode_videojs_video4);</script>
+<script>videojs(video_shortcode_videojs_video5);</script>
+<script>videojs(video_shortcode_videojs_video6);</script>
+<script>videojs(video_shortcode_videojs_video7);</script>
+<script>videojs(video_shortcode_videojs_video8);</script>
+<script>videojs(video_shortcode_videojs_video9);</script>
 
 
 

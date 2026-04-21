@@ -104,13 +104,39 @@ So far, the team has visited the highbay 2 times to conduct real-world data coll
 We collected Rosbags of the stationary car, driving around the track, and people walking in front of a stationary car.
 We have tested lane detection, lane following, and obstacle detection.
 
+::: {.video-container}
+{{< video static/videos/GEM_Data_Collection.mov >}}
+:::
 
+Here is a video of lane detection in the GEM simulator
 
-Here is a video of us testing lane detection in the GEM simulator
+::: {.video-container}
+{{< video static/videos/Sim_Lane_Detector.mov >}}
+:::
 
+Here is a video of waypoint following in the GEM simulator
 
-Here is a video of us testing lane detection in the GEM car
+::: {.video-container}
+{{< video static/videos/Waypoint_Sim.mov >}}
+:::
 
+Here is a video of testing lane detection in the GEM car
+
+::: {.video-container}
+{{< video static/videos/Lane_Detector_Testing.mov >}}
+:::
+
+Here is a video of controlling the GEM car with a gamepad
+
+::: {.video-container}
+{{< video static/videos/Joystick_Driving_Test.mov >}}
+:::
+
+Here is a video of testing obstacle detection in the GEM car
+
+::: {.video-container}
+{{< video static/videos/Obstacle_Detector_Testing.mov >}}
+:::
 
 
 ::: {.section-container}
@@ -120,16 +146,13 @@ Here is a video of us testing lane detection in the GEM car
 We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistently detect lane lines.
 
 ::: {.video-container}
-{{< video static/videos/mp2.webm >}}
+{{< video static/videos/Lane_Follower_Test.mov >}}
 :::
 
 - To avoid the complexity of interfacing with the PACMod, our code outputs joystick commands on the /joy topic.
 While this does work to control the car (see video below), we found that the lack of closed loop control made the speed of the car uncontrollable.
 Most of the time, the car would either be too fast or not move at all.
 We are working on a PID controller to control the speed of the car. 
-::: {.video-container}
-{{< video static/videos/mp2.webm >}}
-:::
 
 - We found that more complex nodes were difficult to develop, as contributors needed to comb through lots of code to understand what was going on within a node.
 Our team decided to leverage the modular nature of ROS to divide complex problems into multiple nodes.
