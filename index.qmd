@@ -229,9 +229,9 @@ Starting from the simulation map origin (x=0, y=0, yaw=0), the path planner gene
 ![Steering angle commands during navigation](static/images/sim_steering_angle_path.png)
 
 
-### Park-to-Drive + Path Planner Handoff
+### Park-to-Drive + Path Planner
 
-The Park-to-Drive (P2D) controller first maneuvers the vehicle out of an arbitrary parking spot. Once the vehicle reaches the first waypoint of the global path, control is handed over to the path planner, which then guides the vehicle to its final destination.
+The Park-to-Drive (P2D) controller first maneuvers the vehicle out of an arbitrary parking spot. Once the vehicle reaches the first waypoint of the global path, control is handed over to the path planner, which then guides the vehicle to its final destination. We will fuse lane follower into this. 
 
 ![Destination requiring a left-turn exit from the parking spot](static/images/p2d_trajectory_metrics_reverse.png)
 
