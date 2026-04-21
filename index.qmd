@@ -156,7 +156,7 @@ We will try both retraining the model on data from the highbay and using more co
 :::
 
 - To avoid the complexity of interfacing with the PACMod, our code outputs joystick commands on the /joy topic.
-While this does work to control the car (see video below), we found that the lack of closed loop control made the speed of the car uncontrollable.
+While this does work to control the car, we found that the lack of closed loop control made the speed of the car uncontrollable.
 Most of the time, the car would either be too fast or not move at all.
 We are working on a PID controller to control the speed of the car. 
 
