@@ -4,6 +4,8 @@ format:
   html:
     toc: false
     page-layout: full
+    margin-left: 10em
+    margin-right: 10em
 ---
 
 ::: {.hero-section}
@@ -112,15 +114,26 @@ Here is a video of us testing lane detection in the GEM car
 
 
 ::: {.section-container}
-## What Worked and Didn't Work {.section-title}
+## What Didn't Work {.section-title}
 :::
-Initially, we tried to reuse the lane segmentation model trained for MP1 to detect lane lines. A mix of cropping and color masking was tried but ultimately did not produce great results. 
-We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistantly detect lane lines.
+- Initially, we tried to reuse the lane segmentation model trained for MP1 to detect lane lines. A mix of cropping and color masking was tried but ultimately did not produce great results. 
+We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistently detect lane lines.
 
 ::: {.video-container}
 {{< video static/videos/mp2.webm >}}
 :::
 
+- To avoid the complexity of interfacing with the PACMod, our code outputs joystick commands on the /joy topic.
+While this does work to control the car (see video below), we found that the lack of closed loop control made the speed of the car uncontrollable.
+Most of the time, the car would either be too fast or not move at all.
+We are working on a PID controller to control the speed of the car. 
+::: {.video-container}
+{{< video static/videos/mp2.webm >}}
+:::
+
+- We found that more complex nodes were difficult to develop, as contributors needed to comb through lots of code to understand what was going on within a node.
+Our team decided to leverage the modular nature of ROS to divide complex problems into multiple nodes.
+Smaller, less complex nodes allow for easier collaboration, and greater code clarity. 
 
 ::: {.section-container}
 
