@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="passenger-pickup" class="level1 title hero-section">
 <h1 class="title">Passenger Pickup</h1>
 <div class="subtitle">
-<p>A Simple Passenger Collection System Triggered by Gestures</p>
+<p>A Simple Passenger Collection System</p>
 </div>
 <div class="author-list">
 <p><a href="https://example.com"><strong>Agastya Pawate</strong></a><sup>1</sup>, <a href="https://example.com"><strong>Ethan Cao</strong></a><sup>1</sup>, <a href="https://example.com"><strong>Hyunjun An</strong></a><sup>1</sup></p>
@@ -201,7 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- ============================================================ -->
 <section id="abstract" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="abstract">Abstract</h2>
-<div class="abstract-text">
+</section>
 <!-- Replace this text with your project abstract. Describe the problem you are
 solving, the key insight or contribution of your work, and the main results.
 Keep it concise — typically 150–250 words. You can use **bold** and *italic*
@@ -210,33 +210,23 @@ formatting to emphasize key terms. -->
 <!-- Experiments demonstrate that our
 approach outperforms existing methods by [metric improvement] while requiring
 [efficiency gain]. -->
-</div>
-</section>
 <section id="task-distribution" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="task-distribution">Task Distribution</h2>
-<div class="content-text">
+</section>
 <p>Our three team members will focus on the following tasks. Agastya will focus on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation. Ethan will focus on lane following algorithms, and system integration. Hyunjun will focus on the park-to-drive controller and global path planning.</p>
-</div>
-</section>
-<section id="current-progress" class="level2 section-title">
+<section id="current-progress" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="current-progress">Current Progress</h2>
-<div class="content-text">
-<p>Here is a video of us testing lane detection in the GEM simulator</p>
-</div>
-<div class="content-text">
-<p>Here is a video of us testing lane detection in the GEM car</p>
-</div>
 </section>
-<div class="section-container">
-<section id="what-worked-and-didnt-work" class="level2 section-title">
+<p>So far, the team has visited the highbay 2 times to conduct real-world data collection and testing. We collected Rosbags of the stationary car, driving around the track, and people walking in front of a stationary car. We have tested lane detection, lane following, and obstacle detection.</p>
+<p>Here is a video of us testing lane detection in the GEM simulator</p>
+<p>Here is a video of us testing lane detection in the GEM car</p>
+<section id="what-worked-and-didnt-work" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="what-worked-and-didnt-work">What Worked and Didn’t Work</h2>
-<div class="content-text">
+</section>
 <p>Initially, we tried to reuse the lane segmentation model trained for MP1 to detect lane lines. A mix of cropping and color masking was tried but ultimately did not produce great results. We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistantly detect lane lines.</p>
-</div>
 <div class="video-container">
 <div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/mp2.webm"></video></div>
 </div>
-</section>
 <div class="section-container">
 <section id="initial-simulator-setup" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="initial-simulator-setup">Initial Simulator Setup</h2>
@@ -381,7 +371,6 @@ Check out [this survey](https://example.com) for a comprehensive overview of the
 </div>
 
 
-</div>
 </div>
 
 </main> <!-- /main -->

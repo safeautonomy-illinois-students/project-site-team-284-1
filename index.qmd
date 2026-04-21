@@ -11,7 +11,7 @@ format:
 # Passenger Pickup {.title}
 
 ::: {.subtitle}
-A Simple Passenger Collection System Triggered by Gestures
+A Simple Passenger Collection System
 :::
 
 ::: {.author-list}
@@ -70,7 +70,7 @@ A Simple Passenger Collection System Triggered by Gestures
 
 ## Abstract {.section-title}
 
-::: {.abstract-text}
+:::
 <!-- Replace this text with your project abstract. Describe the problem you are
 solving, the key insight or contribution of your work, and the main results.
 Keep it concise — typically 150–250 words. You can use **bold** and *italic*
@@ -81,39 +81,42 @@ The GEM vehicle will autonomously navigate to the passenger's location after bei
 <!-- Experiments demonstrate that our
 approach outperforms existing methods by [metric improvement] while requiring
 [efficiency gain]. -->
-:::
 
-:::
 
 ::: {.section-container}
 
 ## Task Distribution {.section-title}
 
-::: {.content-text}
+:::
 Our three team members will focus on the following tasks. Agastya will focus on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation.
 Ethan will focus on lane following algorithms, and system integration.
 Hyunjun will focus on the park-to-drive controller and global path planning.
-:::
 
-:::
+
+::: {.section-container}
 
 ## Current Progress {.section-title}
 
-::: {.content-text}
-Here is a video of us testing lane detection in the GEM simulator
-:::
+::: 
+So far, the team has visited the highbay 2 times to conduct real-world data collection and testing.
+We collected Rosbags of the stationary car, driving around the track, and people walking in front of a stationary car.
+We have tested lane detection, lane following, and obstacle detection.
 
-::: {.content-text}
+
+
+Here is a video of us testing lane detection in the GEM simulator
+
+
 Here is a video of us testing lane detection in the GEM car
-:::
+
 
 
 ::: {.section-container}
 ## What Worked and Didn't Work {.section-title}
-::: {.content-text}
+:::
 Initially, we tried to reuse the lane segmentation model trained for MP1 to detect lane lines. A mix of cropping and color masking was tried but ultimately did not produce great results. 
 We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistantly detect lane lines.
-:::
+
 ::: {.video-container}
 {{< video static/videos/mp2.webm >}}
 :::
