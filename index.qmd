@@ -120,6 +120,12 @@ Here is a video of waypoint following in the GEM simulator
 {{< video static/videos/Waypoint_Sim.mov >}}
 :::
 
+Here is a video of LIDAR obstacle detection in the GEM simulator
+
+::: {.video-container}
+{{< video static/videos/lidar.webm >}}
+:::
+
 Here is a video of testing lane detection in the GEM car
 
 ::: {.video-container}
