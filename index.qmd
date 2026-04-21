@@ -114,12 +114,17 @@ Here is a video of lane detection in the GEM simulator
 {{< video static/videos/Sim_Lane_Detector.mov >}}
 :::
 
-Here is a video of waypoint following in the GEM simulator
+Here is a video of waypoint following, path planner, and park-to-drive in the GEM simulator
 
 ::: {.video-container}
 {{< video static/videos/Waypoint_Sim.mov >}}
 :::
-
+::: {.video-container}
+{{< video static/videos/path_planner_sim.webm.mp4 >}}
+:::
+::: {.video-container}
+{{< video static/videos/p2d+path_planner_sim.webm.mp4 >}}
+:::
 Here is a video of LIDAR obstacle detection in RViz using the ROSBAG collected
 
 ::: {.video-container}
