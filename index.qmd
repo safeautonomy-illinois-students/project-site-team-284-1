@@ -120,7 +120,7 @@ Here is a video of waypoint following in the GEM simulator
 {{< video static/videos/Waypoint_Sim.mov >}}
 :::
 
-Here is a video of LIDAR obstacle detection in the GEM simulator
+Here is a video of LIDAR obstacle detection in RViz using the ROSBAG collected
 
 ::: {.video-container}
 {{< video static/videos/lidar.webm >}}
@@ -142,6 +142,12 @@ Here is a video of testing obstacle detection in the GEM car
 
 ::: {.video-container}
 {{< video static/videos/Obstacle_Detector_Testing.mov >}}
+:::
+
+Here is a graph of a comparison between the graph data for number of obstacle points detected per frame for a non-pedestrian versus pedestrian scenario
+
+::: {.image-container}
+{{< image static/images/data.png > }}
 :::
 
 
