@@ -117,11 +117,12 @@ Our path planner is based on Dijkstra's algorithm, chosen because the small numb
 
 ::: {.results-grid}
 ::: {.result-card}
-![Example of Planned Path Generated](static/images/real_path_2.png)
-:::
-::: {.result-card}
 ![Heading-Aware Path Planning; Optimal Path was not Selected as Heading is Opposite](static/images/real_path_1.png)
 :::
+::: {.result-card}
+![Example of Planned Path Generated](static/images/real_path_2.png)
+:::
+
 :::
 
 **Park to Drive controller and path follower** 
@@ -131,13 +132,17 @@ Park-to-drive is capable of driving from an arbitrary parking spot onto the trac
 $$\delta = -e_{heading} - \arctan\!\left(\frac{k \cdot e_{cte}}{v}\right)$$
 
 ::: {.figure-caption}
-$\delta$: steering angle, $e_{heading}$: heading error, $e_{cte}$: cross-track error, $k=0.5$: gain, $v$: speed
+$\delta$: steering angle, $e_{heading}$: heading error, $e_{cte}$: cross-track error, $k$: gain, $v$: speed
 :::
 
-$$(\text{dist\_from\_path} < 2\text{m} \land \text{lane\_confidence} \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{dist\_from\_path} < 0.5\text{m} \land |\theta_{err}| < 15°)$$
+$$(\text{d} < 2\text{m} \land c \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{d} < 0.5\text{m} \land |e_{heading}| < 15°)$$
+
 ::: {.figure-caption}
-$\delta$: steering angle, $e_{heading}$: heading error, $e_{cte}$: cross-track error, $k=0.5$: gain, $v$: speed
+$\text{d}$: distance from vehicle to current nearest path waypoint, $c$: lane detection confidence score, $t$: duration above threshold, $e_{heading}$: heading error
 :::
+
+
+![Park to Drive Result](static/images/real_p2d_runs.png)
 
 **Data Generation:**
 
