@@ -209,7 +209,7 @@ asdfsda
 ### Software / Simulation Demonstrations
 
 ::: {.video-container}
-<p><b>Fully-Integrated System Demonstration</b> </p>
+<p><b>Fully-Integrated System Demonstration:</b> </p>
 {{< video static/videos/sim_demo.mp4 >}}
 :::
 
