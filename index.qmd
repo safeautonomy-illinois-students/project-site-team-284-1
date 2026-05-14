@@ -70,7 +70,7 @@ A Simple Passenger Collection System
 
 ::: {.section-container}
 
-## Abstract {.section-title}
+## Introduction {.section-title}
 
 :::
 <!-- Replace this text with your project abstract. Describe the problem you are
@@ -78,7 +78,11 @@ solving, the key insight or contribution of your work, and the main results.
 Keep it concise — typically 150–250 words. You can use **bold** and *italic*
 formatting to emphasize key terms. -->
 We propose a solution which utilizes the GEM autonomous vehicle and its capabilities to traverse a track while avoiding obstacles on the way to a would-be passenger.
-The GEM vehicle will autonomously navigate to the passenger's location after being called through a phone app.
+The GEM vehicle will autonomously navigate to the passenger's location after being called through a phone app. For this project, we developed 3 major components:
+a lane follower, a global path planner, and a obstacle detector. The lane detector uses a neural network to 
+mask lanes out of camera images and a line fitter to fit lanes to the masked images. The global path planner uses the car's GPS system to enter the track and determine the ideal path
+to the destination. The obstacle detector uses the car's LiDAR and current path to determine if the car will collide with an object. 
+Current, the GEM e2 is able to enter the track, drive until it reaches its target, and stop for any obstacles in the track until they are removed.
 
 <!-- Experiments demonstrate that our
 approach outperforms existing methods by [metric improvement] while requiring
@@ -100,9 +104,7 @@ Hyunjun will focus on the park-to-drive controller and global path planning.
 ## Current Progress {.section-title}
 
 ::: 
-So far, the team has visited the highbay 2 times to conduct real-world data collection and testing.
-We collected Rosbags of the stationary car, driving around the track, and people walking in front of a stationary car.
-We have tested lane detection, lane following, and obstacle detection.
+Here is a video of us collecting data at the highbay
 
 ::: {.video-container}
 {{< video static/videos/GEM_Data_Collection.mov >}}
