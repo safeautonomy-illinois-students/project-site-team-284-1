@@ -104,7 +104,7 @@ Our three team members focused on the following specific domains to achieve the 
 We created a graph of waypoints to better support bi-directional, optimal path generation. The graph is undirected and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation). 
 
 
-::: {.results-grid}
+::: {.results-grid style="align-items: center;"}
 ::: {.result-card}
 ![Real-world waypoints generated from GPS data (graph implementation)](static/images/real_waypoint_graph.png){width="100%"}
 :::
