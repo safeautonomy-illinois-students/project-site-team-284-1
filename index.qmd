@@ -146,7 +146,13 @@ $\text{d}$: distance from vehicle to current nearest path waypoint, $c$: lane de
 
 **Data Generation:**
 
-asdf
+Since our driving data is collected on a cloudy day, we wanted to simulate a sunny day by brightening and increasing the contrast of our images.
+Additionally, to provide more training data for our lane detector, we performed a combination of image mirrors and shifts. In the end, our 133 raw images were turned into a training set with 5586 images.
+Testing showed that our lane follower was very resistant to weather and lighting changes despite only being trained on one lap of driving.
+
+![Image explaining manipulated data generation](static/images/NNTransforms.png){height="500px"} 
+
+
 
 **Lane Follower Flowchart:**
 
@@ -156,6 +162,7 @@ asdfsda
 ::: {.section-title}
 ## Results & Milestones 
 :::
+
 **Milestones Achieved:**
 
 1. **Simulator:** Successfully tested lane following, path planning, park to drive, and drive to park in the GEM Simulator.
