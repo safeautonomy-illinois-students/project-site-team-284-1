@@ -170,28 +170,8 @@ Data Collection & Waypoint Generation: Highbay testing to map GPS data to real-w
 ### Software / Simulation Demonstrations
 
 ::: {.video-container}
-<p><b>Integrated Path Planning & P2D:</b> Simulation showing the car exiting a parking spot and navigating to a target.</p>
-{{< video static/videos/p2d+path_planner_sim.webm.mp4 >}}
-:::
-
-::: {.video-container}
-<p><b>Path Planner:</b> Simulation of navigating to a target destination.</p>
-{{< video static/videos/path_planner_sim.webm.mp4 >}}
-:::
-
-::: {.video-container}
-<p><b>Waypoint Following & P2D:</b> Waypoint following execution and park-to-drive in the GEM simulator.</p>
-{{< video static/videos/Waypoint_Sim.mov >}}
-:::
-
-::: {.video-container}
 <p><b>Simulated Lane Detection:</b></p>
 {{< video static/videos/Sim_Lane_Detector.mov >}}
-:::
-
-::: {.video-container}
-<p><b>Initial Simulator Setup:</b></p>
-{{< video static/videos/mp2.webm >}}
 :::
 
 ::: {.video-container}
