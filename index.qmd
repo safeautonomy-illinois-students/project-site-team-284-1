@@ -10,7 +10,7 @@ format:
 
 ::: {.hero-section}
 
-# Passenger Pickup {.title}
+# Robotaxi {.title}
 
 ::: {.subtitle}
 A Simple Passenger Collection System
@@ -47,7 +47,7 @@ A Simple Passenger Collection System
 
 ::: {.hero-teaser}
 
-![A block diagram of the modules and required hardware for our project.](static/images/blockdiagram.png){.teaser-img}
+![A block diagram of the modules and workflow of our project.](static/images/logic_flow.png){.teaser-img}
 
 :::
 
