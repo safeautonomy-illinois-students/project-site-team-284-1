@@ -43,311 +43,179 @@ A Simple Passenger Collection System
 :::
 
 
-<!-- ============================================================ -->
-<!-- TEASER IMAGE / VIDEO -->
-<!-- ============================================================ -->
-
 ::: {.section-container}
 
 ::: {.hero-teaser}
 
-<!-- Option A: Use a static image as the teaser -->
 ![A block diagram of the modules and required hardware for our project.](static/images/blockdiagram.png){.teaser-img}
 
-
-<!-- Option B: Embed a video teaser (uncomment below, comment out image above)
-{{< video static/videos/teaser.mp4 >}}
--->
-
 :::
 
 :::
-
-
-<!-- ============================================================ -->
-<!-- ABSTRACT -->
-<!-- ============================================================ -->
-
-::: {.section-container}
-
-## Introduction {.section-title}
-
-:::
-<!-- Replace this text with your project abstract. Describe the problem you are
-solving, the key insight or contribution of your work, and the main results.
-Keep it concise — typically 150–250 words. You can use **bold** and *italic*
-formatting to emphasize key terms. -->
-We propose a solution which utilizes the GEM autonomous vehicle and its capabilities to traverse a track while avoiding obstacles on the way to a would-be passenger.
-The GEM vehicle will autonomously navigate to the passenger's location after being called through a phone app. For this project, we developed 3 major components:
-a lane follower, a global path planner, and a obstacle detector. The lane detector uses a neural network to 
-mask lanes out of camera images and a line fitter to fit lanes to the masked images. The global path planner uses the car's GPS system to enter the track and determine the ideal path
-to the destination. The obstacle detector uses the car's LiDAR and current path to determine if the car will collide with an object. 
-Currently, the GEM e2 is able to enter the track, drive until it reaches its target, and stop for any obstacles in the track until they are removed.
-
-<!-- Experiments demonstrate that our
-approach outperforms existing methods by [metric improvement] while requiring
-[efficiency gain]. -->
 
 
 ::: {.section-container}
 
-## Task Distribution {.section-title}
-
-:::
-Our three team members focused on the following tasks. Agastya focused on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation.
-Ethan focused on lane following algorithms and system integration.
-Hyunjun focused on the park-to-drive controller and global path planning.
-
-
-::: {.section-container}
-
-## Current Progress {.section-title}
-
-::: 
-Here is a video of us collecting data at the highbay
+## Final Demo Video {.section-title}
 
 ::: {.video-container}
-{{< video static/videos/GEM_Data_Collection.mov >}}
+{{< video static/videos/placeholder_final_demo.mp4 >}}
 :::
 
-Using the GPS data from the rosbag, we were able to generate the waypoints.
+:::
 
 
+::: {.section-container}
+## Introduction & System Overview {.section-title}
+:::
+
+Our project utilizes the GEM autonomous vehicle to navigate a track, avoid obstacles, and autonomously reach a passenger after being summoned via a mobile app. To achieve this, we developed three primary subsystems:
+
+- **Lane Follower:** Uses a neural network to mask lanes from camera feeds and fits polynomial lines to navigate the track.
+- **Global Path Planner:** Utilizes the vehicle's GPS and odometry to generate and follow optimal waypoints to the target destination.
+- **Obstacle Detector:** Processes LiDAR point clouds along the generated path to predict and prevent collisions.
+
+Currently, the GEM e2 can successfully enter the track, navigate to its target, and reliably brake for obstacles until the path is clear.
+
+::: {.section-container}
+## Task Distribution {.section-title}
+:::
+
+Our three team members focused on the following specific domains to achieve the project goals:
+
+- **Agastya:** GPS coordinate data transmission from mobile devices, obstacle detection, and distance estimation.
+- **Ethan:** Lane following algorithms and overall system integration.
+- **Hyunjun:** Park-to-drive controller and global path planning.
+
+::: {.section-container}
+## Approach & Methodology {.section-title}
+:::
+
+**Key Methods & Iterations:**
+
+- **Lane Detection Iterations:** We initially attempted to reuse an MP1 lane segmentation model using basic cropping and color masking, which proved unreliable. We have since trained a new neural network using real and generated data, and are considering more complex solutions such as YOLO to consistently detect lane lines.
+- **Control Systems:** To avoid the complexity of interfacing with the PACMod, our code initially outputted joystick commands on the `/joy` topic. Due to a lack of closed-loop control, speed was highly erratic, causing the car to move too fast or not at all. We resolved this by implementing a closed-loop PID controller to regulate vehicle speed smoothly.
+- **Node Modularity:** We found that complex nodes were difficult to develop, as contributors needed to comb through lots of code to understand what was going on. Our team decided to leverage the modular nature of ROS to divide complex problems into multiple smaller nodes, allowing for easier collaboration and greater code clarity.
+- **Centralized Control Hierarchy:** Another issue we encountered was the controller detecting obstacles but failing to brake due to a lack of a centralized "stop" topic, meaning driver input could partially override stop commands. We centralized all our submodules' data into common topics that can be read from, allowing us to implement a priority hierarchy for our system.
+- **Dynamic Obstacle Safety Region:** The controller occasionally detected nearby obstacles, such as buildings, despite the path not intersecting with them. We fixed this by turning the obstacle detector's unsafety region into a region bounded by quadratics fitted to the upcoming waypoints from the global path planner, ensuring the GEM e2 only halts for obstacles directly in its path.
+- **Waypoint Graph Generation & Path Planning:** We transferred our list of waypoints into a graph to better support bi-directional, optimal path generation. The graph is undirected and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation). Our path planner is based on Dijkstra's algorithm, chosen because the small number of nodes results in minimal computation time, while remaining optimal and simple to implement.
+
+::: {.section-container}
+## Results & Milestones {.section-title}
+:::
+
+**Milestones Achieved:**
+
+1. **Simulator:** Successfully tested lane following, path planning, and park to drive in the GEM Simulator.
+2. **Hardware Actuation:** Successfully controlled the physical GEM car via ackermann commands using our ROS nodes.
+3. **Hardware Perception:** Successfully ran lane detection, park to drive, global path planning, and LiDAR obstacle detection on the physical GEM vehicle.
+
+### Quantitative Data
+
+**Waypoint Generation (Lists vs. Graphs)**
+
+::: {.results-grid}
 ::: {.result-card}
 ![Real-world waypoints generated from GPS data (list implementation)](static/images/real_waypoints.png)
 :::
-
 ::: {.result-card}
 ![Simulation waypoints generated from simulation odometry data (list implementation)](static/images/sim_waypoint_map.png)
 :::
-
 :::
 
-We transferred list of waypoints into a graph of waypoints to better support bi-directional, optimal path generation.
-The graph is undirected (bi-directional) and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation).
-
 ::: {.results-grid}
-
 ::: {.result-card}
 ![Real-world waypoints generated from GPS data (graph implementation)](static/images/real_waypoint_graph.png)
 :::
-
 ::: {.result-card}
 ![Simulation waypoints generated from simulation odometry data (graph implementation)](static/images/sim_waypoint_graph.png)
 :::
-
-:::
-### Path planner
-Path planner is based on Dijkstra's algorithm. We chose to use Dijkstra as the number of nodes are small (minimal difference in computation time), optimal, and simple to implement (fast development).
-
-
-
-For path planning, we used 
-
-Here is a video of lane detection in the GEM simulator
-
-::: {.video-container}
-{{< video static/videos/Sim_Lane_Detector.mov >}}
 :::
 
-Here is a video of waypoint following, path planner, and park-to-drive in the GEM simulator
-
-::: {.video-container}
-{{< video static/videos/Waypoint_Sim.mov >}}
-:::
-::: {.video-container}
-{{< video static/videos/path_planner_sim.webm.mp4 >}}
-:::
-::: {.video-container}
-{{< video static/videos/p2d+path_planner_sim.webm.mp4 >}}
-:::
-Here is a video of LIDAR obstacle detection in RViz using the ROSBAG collected
-
-::: {.video-container}
-{{< video static/videos/lidar.webm >}}
-:::
-
-Here is a video of testing lane detection in the GEM car
-
-::: {.video-container}
-{{< video static/videos/Lane_Detector_Testing.mov >}}
-:::
-
-Here is a video of controlling the GEM car with a gamepad
-
-::: {.video-container}
-{{< video static/videos/Joystick_Driving_Test.mov >}}
-:::
-
-Here is a video of testing obstacle detection in the GEM car
-
-::: {.video-container}
-{{< video static/videos/Obstacle_Detector_Testing.mov >}}
-:::
-
-
-::: {.section-container}
-## What Didn't Work {.section-title}
-:::
-- Initially, we tried to reuse the lane segmentation model trained for MP1 to detect lane lines. A mix of cropping and color masking was tried but ultimately did not produce great results. 
-We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistently detect lane lines.
-
-::: {.video-container}
-{{< video static/videos/Lane_Follower_Test.mov >}}
-:::
-
-- To avoid the complexity of interfacing with the PACMod, our code outputs joystick commands on the /joy topic.
-While this does work to control the car, we found that the lack of closed loop control made the speed of the car uncontrollable.
-Most of the time, the car would either be too fast or not move at all.
-We are working on a PID controller to control the speed of the car. 
-
-- We found that more complex nodes were difficult to develop, as contributors needed to comb through lots of code to understand what was going on within a node.
-Our team decided to leverage the modular nature of ROS to divide complex problems into multiple nodes.
-Smaller, less complex nodes allow for easier collaboration, and greater code clarity. 
-
-- Another minor issue we had was with the controller detecting obstacles but failing to brake for them. We found that this was due to the lack of a centralized "stop" topic for nodes to publish to, meaning that driver input could partially override stop commands.
-One of the major changes that we made as a result was the centralization of all our submodules' data into common topics that can be read from. This allowed us to implement a priority hierarchy for our system and was a major step forward towards integrating all modules into a single self-driving setup.
-
-- We also had an issue with the controller detecting nearby obstacles such as buildings despite the path not intersecting with them. To fix this, we turned the obstacle detector's unsafety region into a region bounded by quadratics fitted to the upcoming waypoints from the global path planner, ensuring that the GEM E2 only halts for obstacles that lie directly in its path.
-
-
-
-
-
-<!-- ============================================================ -->
-<!-- RESULTS GALLERY -->
-<!-- ============================================================ -->
-
-::: {.section-container}
-
-## Results {.section-title}
-
-:::
-
-::: {.content-text}
-Below are graphs of some of the data we have collected thus far.
-:::
-
-
-### Obstacle Detection Data
-
-![Comparison of non-pedestrian vs pedestrian LIDAR ROSBAGS with respect to number of obstacle points detected.](static/images/data.png)
-
-
-### Path Planning: Origin to a Random Point on the Road
+**Path Planning & Waypoint Tracking Metrics**
 
 Starting from the simulation map origin (x=0, y=0, yaw=0), the path planner generates and executes a trajectory to a randomly selected point on the road.
 
 ![Waypoint tracking error along the path](static/images/sim_waypoint_error_path.png)
-
 ![Distance to goal over time](static/images/sim_dist_to_goal_plot_path.png)
-
 ![Steering angle commands during navigation](static/images/sim_steering_angle_path.png)
 
+**Park-to-Drive (P2D) + Path Planner Metrics**
 
-### Park-to-Drive + Path Planner
-
-The Park-to-Drive (P2D) controller first maneuvers the vehicle out of an arbitrary parking spot. Once the vehicle reaches the first waypoint of the global path, control is handed over to the path planner, which then guides the vehicle to its final destination. We will fuse lane follower into this. 
+The Park-to-Drive (P2D) controller first maneuvers the vehicle out of an arbitrary parking spot. Once the vehicle reaches the first waypoint of the global path, control is handed over to the path planner, which then guides the vehicle to its final destination. We will fuse lane follower into this.
 
 ![Destination requiring a left-turn exit from the parking spot](static/images/p2d_trajectory_metrics_reverse.png)
-
 ![Destination requiring a right-turn exit from the parking spot](static/images/p2d_trajectory_metrics.png)
 
+**Obstacle Detection Metrics**
 
-<!-- ============================================================ -->
-<!-- QUALITATIVE COMPARISONS -->
-<!-- ============================================================ -->
+![Comparison of non-pedestrian vs pedestrian LIDAR ROSBAGS with respect to number of obstacle points detected.](static/images/data.png)
 
-<!-- ::: {.section-container}
 
-## Qualitative Comparisons {.section-title}
+::: {.section-container}
+## Demonstrations {.section-title}
 
-::: {.content-text}
-Describe the comparison setup — which baselines are you comparing against, and
-what should the reader look for in the side-by-side results.
+### Hardware Demonstrations
+
+::: {.video-container}
+Data Collection & Waypoint Generation: Highbay testing to map GPS data to real-world waypoints.
+{{< video static/videos/GEM_Data_Collection.mov >}}
 :::
 
-::: {.comparison-grid}
-
-::: {.comparison-item}
-![Ours](static/images/placeholder-ours.svg)
-
-**Ours**
+::: {.video-container}
+<p><b>Lane Detection on GEM:</b> Real-time hardware testing of the perception stack.</p>
+{{< video static/videos/Lane_Detector_Testing.mov >}}
 :::
 
-::: {.comparison-item}
-![Baseline A](static/images/placeholder-baseline.svg)
+::: {.video-container}
+<p><b>Obstacle Detection on GEM:</b> Verifying LiDAR point cloud processing.</p>
+{{< video static/videos/Obstacle_Detector_Testing.mov >}}
+:::
 
-**Baseline A**
+::: {.video-container}
+<p><b>Joystick Driving Test:</b> Controlling the GEM car with a gamepad.</p>
+{{< video static/videos/Joystick_Driving_Test.mov >}}
+:::
+
+::: {.video-container}
+<p><b>Failed Lane Follower Test:</b> Previous iteration showing inconsistent lane tracking before improvements.</p>
+{{< video static/videos/Lane_Follower_Test.mov >}}
+:::
+
+### Software / Simulation Demonstrations
+
+::: {.video-container}
+<p><b>Integrated Path Planning & P2D:</b> Simulation showing the car exiting a parking spot and navigating to a target.</p>
+{{< video static/videos/p2d+path_planner_sim.webm.mp4 >}}
+:::
+
+::: {.video-container}
+<p><b>Path Planner:</b> Simulation of navigating to a target destination.</p>
+{{< video static/videos/path_planner_sim.webm.mp4 >}}
+:::
+
+::: {.video-container}
+<p><b>Waypoint Following & P2D:</b> Waypoint following execution and park-to-drive in the GEM simulator.</p>
+{{< video static/videos/Waypoint_Sim.mov >}}
+:::
+
+::: {.video-container}
+<p><b>Simulated Lane Detection:</b></p>
+{{< video static/videos/Sim_Lane_Detector.mov >}}
+:::
+
+::: {.video-container}
+<p><b>Initial Simulator Setup:</b></p>
+{{< video static/videos/mp2.webm >}}
+:::
+
+::: {.video-container}
+<p><b>LiDAR Obstacle Detection (RViz):</b> Visualizing the ROSBAG data collected.</p>
+{{< video static/videos/lidar.webm >}}
 :::
 
 :::
 
-::: -->
-
-
-<!-- ============================================================ -->
-<!-- INTERACTIVE SLIDER (Optional) -->
-<!-- ============================================================ -->
-
-<!-- ::: {.section-container}
-
-## Interpolation Demo {.section-title}
-
-::: {.content-text}
-If your method supports interpolation or continuous control, you can add an
-interactive slider here. The example below shows how to set one up.
-:::
-
-::: {.interpolation-panel}
-
-::: {.interpolation-endpoints}
-![Start](static/images/placeholder-start.svg){.endpoint-img}
-
-![End](static/images/placeholder-end.svg){.endpoint-img}
-:::
-
-<input type="range" min="0" max="100" value="50" class="interpolation-slider" id="interpolation-slider">
-<div id="interpolation-value" class="interpolation-value">50%</div>
-
-<script>
-  const slider = document.getElementById('interpolation-slider');
-  const display = document.getElementById('interpolation-value');
-  slider.addEventListener('input', function() {
-    display.textContent = this.value + '%';
-  });
-</script>
-
-:::
-
-::: -->
-
-
-<!-- ============================================================ -->
-<!-- RELATED WORK -->
-<!-- ============================================================ -->
-
-<!-- ::: {.section-container}
-
-## Related Work {.section-title}
-
-::: {.content-text}
-
-Here are some related works in this area:
-
-- [Related Paper 1](https://example.com) introduces an idea similar to ours for [topic].
-- [Related Paper 2](https://example.com) also addresses [problem] using [approach].
-- [Related Paper 3](https://example.com) proposes [technique] which is complementary to our method.
-
-Check out [this survey](https://example.com) for a comprehensive overview of the field.
-:::
-
-::: -->
-
-
-<!-- ============================================================ -->
-<!-- BIBTEX -->
-<!-- ============================================================ -->
 
 ::: {.section-container}
 
@@ -358,21 +226,14 @@ Check out [this survey](https://example.com) for a comprehensive overview of the
   author    = {Hyunjun An and Ethan Cao and Agastya Pawate},
   title     = {Passenger Pickup},
   journal   = {ECE 484: Safe Autonomy},
-  year      = {2026},
+  year      = {2026}
 }
 ```
-
 :::
-
-
-<!-- ============================================================ -->
-<!-- FOOTER -->
-<!-- ============================================================ -->
 
 ::: {.site-footer}
 
 This website template is adapted from the
-[Nerfies](https://nerfies.github.io) project page, which is licensed under a
-[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
-
+Nerfies project page, which is licensed under a
+Creative Commons Attribution-ShareAlike 4.0 International License.
 :::
