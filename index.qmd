@@ -222,7 +222,7 @@ asdfsda
 :::
 :::
 
-![Actual Path Followed](static/images/sim_demo_path_actual.png)
+![Actual Path Followed](static/images/sim_demo_path_actual.png){width="50%"}
 
 ::: {.video-container}
 <p><b>Simulated Lane Detection:</b></p>
