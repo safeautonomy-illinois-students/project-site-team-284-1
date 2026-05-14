@@ -105,7 +105,7 @@ We transferred our list of waypoints into a graph to better support bi-direction
 
 **Park to Drive controller and path follower** 
 
-Park-to-drive is capable of driving from an arbitrary parking spot onto the track. Stanley controller is selected as it can account for both cross-track error and heading error at the same time. Once the vehicle joins the track ($(\text{dist_from_path} < 2\text{m} \land \text{lane_confidence} \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{dist_from_path} < 0.5\text{m} \land |\heading_{err}| < 15°)$), control is delegated to the lane follower (pure pursuit-based).
+Park-to-drive is capable of driving from an arbitrary parking spot onto the track. Stanley controller is selected as it can account for both cross-track error and heading error at the same time. Once the vehicle joins the track ($(\text{dist_from_path} < 2\text{m} \land \text{lane_confidence} \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{dist_from_path} < 0.5\text{m} \land |\theta_{err}| < 15°)$), control is delegated to the lane follower (pure pursuit-based).
 
 
 ::: {.section-container}
