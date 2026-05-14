@@ -132,7 +132,7 @@ Park-to-drive is capable of driving from an arbitrary parking spot onto the trac
 $$\delta = -e_{heading} - \arctan\!\left(\frac{k \cdot e_{cte}}{v}\right)$$
 
 ::: {.figure-caption}
-$\delta$: steering angle, $e_{heading}$: heading error, $e_{cte}$: cross-track error, $k$: gain, $v$: speed
+$\delta$: steering angle, $e_{heading}$: heading error, $e_{cte}$: cross-track error, $k=0.5$: gain, $v=0.6$: speed. 
 :::
 
 $$(\text{d} < 2\text{m} \land c \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{d} < 0.5\text{m} \land |e_{heading}| < 15°)$$
