@@ -106,10 +106,10 @@ We created a graph of waypoints to better support bi-directional, optimal path g
 
 ::: {.results-grid}
 ::: {.result-card}
-![Real-world waypoints generated from GPS data (graph implementation)](static/images/real_waypoint_graph.png){height="300px"}
+![Real-world waypoints generated from GPS data (graph implementation)](static/images/real_waypoint_graph.png){width="100%"}
 :::
 ::: {.result-card}
-![Simulation waypoints generated from simulation odometry data (graph implementation)](static/images/sim_waypoint_graph.png){height="300px"}
+![Simulation waypoints generated from simulation odometry data (graph implementation)](static/images/sim_waypoint_graph.png){width="100%"}
 :::
 :::
 
@@ -125,7 +125,7 @@ Our path planner is based on Dijkstra's algorithm, chosen because the small numb
 
 :::
 
-**Park to Drive controller and path follower** 
+**Park to Drive controller** 
 
 Park-to-drive is capable of driving from an arbitrary parking spot onto the track. Stanley controller is selected as it can account for both cross-track error and heading error at the same time. Once the vehicle joins the track, control is delegated to the lane follower (pure pursuit-based).
 
