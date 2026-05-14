@@ -142,7 +142,7 @@ $\text{d}$: distance from vehicle to current nearest path waypoint, $c$: lane de
 :::
 
 
-![Park to Drive Result](static/images/real_p2d_runs.png)
+![Park to Drive Experimental Result](static/images/real_p2d_runs.png)
 
 **Data Generation:**
 
