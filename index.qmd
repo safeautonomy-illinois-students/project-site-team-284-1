@@ -98,7 +98,20 @@ Our three team members focused on the following specific domains to achieve the 
 - **Node Modularity:** We found that complex nodes were difficult to develop, as contributors needed to comb through lots of code to understand what was going on. Our team decided to leverage the modular nature of ROS to divide complex problems into multiple smaller nodes, allowing for easier collaboration and greater code clarity.
 - **Centralized Control Hierarchy:** Another issue we encountered was the controller detecting obstacles but failing to brake due to a lack of a centralized "stop" topic, meaning driver input could partially override stop commands. We centralized all our submodules' data into common topics that can be read from, allowing us to implement a priority hierarchy for our system.
 - **Dynamic Obstacle Safety Region:** The controller occasionally detected nearby obstacles, such as buildings, despite the path not intersecting with them. We fixed this by turning the obstacle detector's unsafety region into a region bounded by quadratics fitted to the upcoming waypoints from the global path planner, ensuring the GEM e2 only halts for obstacles directly in its path.
- 
+- **Absolute Heading via Septentrio Dual-Antenna GNSS:** ZED odometry provides only *relative* heading that resets on restart, making it unsuitable for global path planning. Instead, the Septentrio INS (`/insnavgeod`) provides absolute heading in NED convention, converted to ENU:
+
+$$\psi_{ENU} = \frac{\pi}{2} - \psi_{NED} \cdot \frac{\pi}{180}$$
+
+- **GPS → Local XY Coordinate Conversion:** All GPS coordinates are projected to a local ENU frame with the first graph node as origin:
+
+$$x = R \cdot \Delta\lambda \cdot \cos(\phi_0), \qquad y = R \cdot \Delta\phi$$
+
+
+
+::: {.figure-caption}
+$R = 6{,}371{,}000$ m: Earth radius, $\Delta\lambda = \lambda - \lambda_0$: longitude offset (rad), $\Delta\phi = \phi - \phi_0$: latitude offset (rad), $(\phi_0, \lambda_0)$: origin node
+:::
+
 **Waypoint Graph Generation & Path Planning** 
 
 We created a graph of waypoints to better support bi-directional, optimal path generation. The graph is undirected and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation). 
@@ -125,7 +138,8 @@ Our path planner is based on Dijkstra's algorithm, chosen because the small numb
 
 :::
 
-**Park to Drive controller** 
+
+**Park to Drive Controller** 
 
 Park-to-drive is capable of driving from an arbitrary parking spot onto the track. Stanley controller is selected as it can account for both cross-track error and heading error at the same time. Once the vehicle joins the track, control is delegated to the lane follower (pure pursuit-based).
 
@@ -140,6 +154,20 @@ $$(\text{d} < 2\text{m} \land c \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{d
 ::: {.figure-caption}
 $\text{d}$: distance from vehicle to current nearest path waypoint, $c$: lane detection confidence score, $t$: duration above threshold, $e_{heading}$: heading error
 :::
+
+**Drive to Park Controller (in progress)**
+
+Drive-to-Park returns the vehicle to the parking spot after passenger pickup. It is activated via `/activate_parking` and runs a two-phase controller:
+
+**ALIGN** — Pure pursuit on a pre-generated axis of 15 waypoints (1 m spacing) through the parking spot along `park_theta`. Steering command:
+
+$$\delta = \arctan\!\left(\frac{2L\sin\alpha}{d_{la}}\right)$$
+
+::: {.figure-caption}
+$L=1.75$ m: wheelbase, $\alpha$: angle to lookahead waypoint, $d_{la}$: lookahead distance. Phase exits when $|e_{cross}| < 0.12\text{m} \land |e_{heading}| < 2.5°$
+:::
+
+**PARK** — Drives straight ($\delta = 0$) along the axis to the exact parking coordinate with linear speed ramp-down from 4 m. Completes when $\text{dist} < 0.35\text{m} \land |e_{heading}| < 5°$.
 
 
 ![Park to Drive Experimental Result](static/images/real_p2d_runs.png)
