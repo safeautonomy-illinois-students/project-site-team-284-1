@@ -82,7 +82,7 @@ The GEM vehicle will autonomously navigate to the passenger's location after bei
 a lane follower, a global path planner, and a obstacle detector. The lane detector uses a neural network to 
 mask lanes out of camera images and a line fitter to fit lanes to the masked images. The global path planner uses the car's GPS system to enter the track and determine the ideal path
 to the destination. The obstacle detector uses the car's LiDAR and current path to determine if the car will collide with an object. 
-Current, the GEM e2 is able to enter the track, drive until it reaches its target, and stop for any obstacles in the track until they are removed.
+Currently, the GEM e2 is able to enter the track, drive until it reaches its target, and stop for any obstacles in the track until they are removed.
 
 <!-- Experiments demonstrate that our
 approach outperforms existing methods by [metric improvement] while requiring
@@ -94,9 +94,9 @@ approach outperforms existing methods by [metric improvement] while requiring
 ## Task Distribution {.section-title}
 
 :::
-Our three team members will focus on the following tasks. Agastya will focus on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation.
-Ethan will focus on lane following algorithms, and system integration.
-Hyunjun will focus on the park-to-drive controller and global path planning.
+Our three team members focused on the following tasks. Agastya focused on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation.
+Ethan focused on lane following algorithms and system integration.
+Hyunjun focused on the park-to-drive controller and global path planning.
 
 
 ::: {.section-container}
@@ -187,7 +187,9 @@ Our team decided to leverage the modular nature of ROS to divide complex problem
 Smaller, less complex nodes allow for easier collaboration, and greater code clarity. 
 
 - Another minor issue we had was with the controller detecting obstacles but failing to brake for them. We found that this was due to the lack of a centralized "stop" topic for nodes to publish to, meaning that driver input could partially override stop commands.
-One of the major changes that we plan to make in the coming days is the centralization of all our submodules' data into common topics that can be read from. This will allow us to implement a priority hierarchy for our system and will be a major step forward towards integrating all modules into a single self-driving setup.
+One of the major changes that we made as a result was the centralization of all our submodules' data into common topics that can be read from. This allowed us to implement a priority hierarchy for our system and was a major step forward towards integrating all modules into a single self-driving setup.
+
+- We also had an issue with the controller detecting nearby obstacles such as buildings despite the path not intersecting with them. To fix this, we turned the obstacle detector's unsafety region into a region bounded by quadratics fitted to the upcoming waypoints from the global path planner, ensuring that the GEM E2 only halts for obstacles that lie directly in its path.
 
 ::: {.section-container}
 
