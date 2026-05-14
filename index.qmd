@@ -162,6 +162,7 @@ asdfsda
 ::: {.section-title}
 ## Results & Milestones 
 :::
+
 **Milestones Achieved:**
 
 1. **Simulator:** Successfully tested lane following, path planning, park to drive, and drive to park in the GEM Simulator.
