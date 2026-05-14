@@ -230,6 +230,7 @@ asdfsda
 ::: {.result-card}
 ![Parking to Passenger, Passenger to Destination (Another Parking Spot)](static/images/sim_demo_full_path_planned.png)
 :::
+:::
 
 ![Actual Path Followed](static/images/sim_demo_path_actual.png)
 
