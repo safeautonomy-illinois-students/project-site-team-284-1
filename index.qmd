@@ -83,7 +83,7 @@ Currently, the GEM e2 can successfully enter the track, navigate to its target, 
 
 Our three team members focused on the following specific domains to achieve the project goals:
 
-- **Agastya:** GPS coordinate data transmission from mobile devices, obstacle detection, and distance estimation.
+- **Agastya:** Obstacle detection and distance estimation.
 - **Ethan:** Lane following algorithms and overall system integration.
 - **Hyunjun:** Park-to-drive controller and global path planning.
 
@@ -187,6 +187,9 @@ To make the lane follower work at intersections and when only a single lane is v
 
 ![Image lane detection decision making](static/images/laneflowchart.png){height="400px"} 
 
+**Obstacle Detection Comparison Graph:**
+To determine an appropriate threshold for our obstacle detector, we utilized pedestrian and non-pedestrian ROSBAGS with LIDAR data from the GEM E2. We then graphed the number of points in the unsafety region for each scenario. This helped us finalize an unsafety threshold of around ten data points.
+![Comparison of non-pedestrian vs pedestrian LIDAR ROSBAGS with respect to number of obstacle points detected.](static/images/data.png)
 
 ::: {.section-title}
 ## Results & Milestones 
@@ -197,12 +200,6 @@ To make the lane follower work at intersections and when only a single lane is v
 1. **Simulator:** Successfully tested lane following, path planning, park to drive, and drive to park in the GEM Simulator.
 2. **Hardware Actuation:** Successfully controlled the physical GEM car via ackermann commands using our ROS nodes.
 3. **Hardware Perception:** Successfully integrated lane detection, park to drive, global path planning, and LiDAR obstacle detection on the physical GEM vehicle.
-
-### Quantitative Data
-
-**Obstacle Detection Metrics**
-
-![Comparison of non-pedestrian vs pedestrian LIDAR ROSBAGS with respect to number of obstacle points detected.](static/images/data.png)
 
 
 ::: {.section-title}
@@ -221,7 +218,7 @@ To make the lane follower work at intersections and when only a single lane is v
 :::
 
 ::: {.video-container}
-<p><b>Obstacle Detection on GEM:</b> Verifying LiDAR point cloud processing.</p>
+<p><b>Obstacle Detection on GEM:</b> Verifying LiDAR point cloud processing for V1 of Obstacle Detector.</p>
 {{< video static/videos/Obstacle_Detector_Testing.mov >}}
 :::
 
