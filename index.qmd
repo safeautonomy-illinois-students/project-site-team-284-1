@@ -112,18 +112,37 @@ Here is a video of us collecting data at the highbay
 
 Using the GPS data from the rosbag, we were able to generate the waypoints.
 
+
+::: {.result-card}
+![Real-world waypoints generated from GPS data (list implementation)](static/images/real_waypoints.png)
+:::
+
+::: {.result-card}
+![Simulation waypoints generated from simulation odometry data (list implementation)](static/images/sim_waypoint_map.png)
+:::
+
+:::
+
+We transferred list of waypoints into a graph of waypoints to better support bi-directional, optimal path generation.
+The graph is undirected (bi-directional) and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation).
+
 ::: {.results-grid}
 
 ::: {.result-card}
-![Real-world waypoints generated from GPS data (105 waypoints)](static/images/real_waypoints.png)
+![Real-world waypoints generated from GPS data (graph implementation)](static/images/real_waypoint_graph.png)
 :::
 
 ::: {.result-card}
-![Simulation waypoints generated from simulation odometry data (318 waypoints)](static/images/sim_waypoint_map.png)
+![Simulation waypoints generated from simulation odometry data (graph implementation)](static/images/sim_waypoint_graph.png)
 :::
 
 :::
+### Path planner
+Path planner is based on Dijkstra's algorithm. We chose to use Dijkstra as the number of nodes are small (minimal difference in computation time), optimal, and simple to implement (fast development).
 
+
+
+For path planning, we used 
 
 Here is a video of lane detection in the GEM simulator
 
