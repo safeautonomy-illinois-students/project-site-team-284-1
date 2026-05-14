@@ -183,8 +183,9 @@ Testing showed that our lane follower was very resistant to weather and lighting
 
 
 **Lane Follower Flowchart:**
+To make the lane follower work at intersections and when only a single lane is visible, we have implemented the following decision logic flowchart.
 
-asdfsda
+![Image lane detection decision making](static/images/laneflowchart.png){height="400px"} 
 
 
 ::: {.section-title}
