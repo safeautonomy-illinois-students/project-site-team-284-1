@@ -197,7 +197,7 @@ To make the lane follower work at intersections and when only a single lane is v
 1. **Simulator:** Successfully tested lane following, path planning, park to drive, and drive to park in the GEM Simulator.
 2. **Hardware Actuation:** Successfully controlled the physical GEM car via ackermann commands using our ROS nodes.
 3. **Hardware Perception:** Successfully integrated lane detection, park to drive, global path planning, and LiDAR obstacle detection on the physical GEM vehicle.
-:::
+
 ### Quantitative Data
 
 **Obstacle Detection Metrics**
