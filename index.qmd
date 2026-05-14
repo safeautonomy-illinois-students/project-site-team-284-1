@@ -209,16 +209,6 @@ asdfsda
 ### Software / Simulation Demonstrations
 
 ::: {.video-container}
-<p><b>Simulated Lane Detection:</b></p>
-{{< video static/videos/Sim_Lane_Detector.mov >}}
-:::
-
-::: {.video-container}
-<p><b>LiDAR Obstacle Detection (RViz):</b> Visualizing the ROSBAG data collected.</p>
-{{< video static/videos/lidar.webm >}}
-:::
-
-::: {.video-container}
 <p><b>Fully-Integrated System Demonstration</b> </p>
 {{< video static/videos/sim_demo.mp4 >}}
 :::
@@ -233,6 +223,17 @@ asdfsda
 :::
 
 ![Actual Path Followed](static/images/sim_demo_path_actual.png)
+
+::: {.video-container}
+<p><b>Simulated Lane Detection:</b></p>
+{{< video static/videos/Sim_Lane_Detector.mov >}}
+:::
+
+::: {.video-container}
+<p><b>LiDAR Obstacle Detection (RViz):</b> Visualizing the ROSBAG data collected.</p>
+{{< video static/videos/lidar.webm >}}
+:::
+
 
 ::: {.section-container}
 
