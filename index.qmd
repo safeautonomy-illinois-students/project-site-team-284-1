@@ -210,15 +210,8 @@ One of the major changes that we made as a result was the centralization of all 
 
 - We also had an issue with the controller detecting nearby obstacles such as buildings despite the path not intersecting with them. To fix this, we turned the obstacle detector's unsafety region into a region bounded by quadratics fitted to the upcoming waypoints from the global path planner, ensuring that the GEM E2 only halts for obstacles that lie directly in its path.
 
-::: {.section-container}
 
-::: {.section-container}
-## Initial Simulator Setup {.section-title}
-::: {.video-container}
-{{< video static/videos/mp2.webm >}}
-:::
 
-:::
 
 
 <!-- ============================================================ -->
