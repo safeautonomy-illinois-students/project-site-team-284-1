@@ -101,7 +101,28 @@ Our three team members focused on the following specific domains to achieve the 
  
 **Waypoint Graph Generation & Path Planning** 
 
-We created a graph of waypoints to better support bi-directional, optimal path generation. The graph is undirected and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation). Our path planner is based on Dijkstra's algorithm, chosen because the small number of nodes results in minimal computation time difference with other algorithms (A*), while remaining optimal and simple to implement. To account for heading-aware planning, we made the planner to only consider a path that can be achieved by current heading by giving penalty (cost of 500m) if it tries to generate unachievable path. Planner also publishes `/next_turn` to determine which lane to follow at junctions. 
+We created a graph of waypoints to better support bi-directional, optimal path generation. The graph is undirected and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation). 
+
+
+::: {.results-grid}
+::: {.result-card}
+![Real-world waypoints generated from GPS data (graph implementation)](static/images/real_waypoint_graph.png)
+:::
+::: {.result-card}
+![Simulation waypoints generated from simulation odometry data (graph implementation)](static/images/sim_waypoint_graph.png)
+:::
+:::
+
+Our path planner is based on Dijkstra's algorithm, chosen because the small number of nodes results in minimal computation time difference with other algorithms (A*), while remaining optimal and simple to implement. To account for heading-aware planning, we made the planner to only consider a path that can be achieved by current heading by giving penalty (cost of 500m) if it tries to generate unachievable path. Planner also publishes `/next_turn` to determine which lane to follow at junctions. 
+
+::: {.results-grid}
+::: {.result-card}
+![Example of Planned Path Generated](static/images/real_path_2.png)
+:::
+::: {.result-card}
+![Heading-Aware Path Planning; Optimal Path was not Selected as Heading is Opposite](static/images/real_path_1.png)
+:::
+:::
 
 **Park to Drive controller and path follower** 
 
@@ -127,26 +148,6 @@ asdfsda
 3. **Hardware Perception:** Successfully integrated lane detection, park to drive, global path planning, and LiDAR obstacle detection on the physical GEM vehicle.
 :::
 ### Quantitative Data
-
-**Waypoint Generation (Lists vs. Graphs)**
-
-::: {.results-grid}
-::: {.result-card}
-![Real-world waypoints generated from GPS data (list implementation)](static/images/real_waypoints.png)
-:::
-::: {.result-card}
-![Simulation waypoints generated from simulation odometry data (list implementation)](static/images/sim_waypoint_map.png)
-:::
-:::
-
-::: {.results-grid}
-::: {.result-card}
-![Real-world waypoints generated from GPS data (graph implementation)](static/images/real_waypoint_graph.png)
-:::
-::: {.result-card}
-![Simulation waypoints generated from simulation odometry data (graph implementation)](static/images/sim_waypoint_graph.png)
-:::
-:::
 
 **Obstacle Detection Metrics**
 
