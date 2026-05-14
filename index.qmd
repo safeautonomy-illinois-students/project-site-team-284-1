@@ -106,10 +106,10 @@ We created a graph of waypoints to better support bi-directional, optimal path g
 
 ::: {.results-grid}
 ::: {.result-card}
-![Real-world waypoints generated from GPS data (graph implementation)](static/images/real_waypoint_graph.png)
+![Real-world waypoints generated from GPS data (graph implementation)](static/images/real_waypoint_graph.png){height="300px"}
 :::
 ::: {.result-card}
-![Simulation waypoints generated from simulation odometry data (graph implementation)](static/images/sim_waypoint_graph.png)
+![Simulation waypoints generated from simulation odometry data (graph implementation)](static/images/sim_waypoint_graph.png){height="300px"}
 :::
 :::
 
@@ -126,8 +126,18 @@ Our path planner is based on Dijkstra's algorithm, chosen because the small numb
 
 **Park to Drive controller and path follower** 
 
-Park-to-drive is capable of driving from an arbitrary parking spot onto the track. Stanley controller is selected as it can account for both cross-track error and heading error at the same time. Once the vehicle joins the track ($(\text{dist\_from\_path} < 2\text{m} \land \text{lane\_confidence} \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{dist\_from\_path} < 0.5\text{m} \land |\theta_{err}| < 15°)$), control is delegated to the lane follower (pure pursuit-based).
+Park-to-drive is capable of driving from an arbitrary parking spot onto the track. Stanley controller is selected as it can account for both cross-track error and heading error at the same time. Once the vehicle joins the track, control is delegated to the lane follower (pure pursuit-based).
 
+$$\delta = -e_{heading} - \arctan\!\left(\frac{k \cdot e_{cte}}{v}\right)$$
+
+::: {.figure-caption}
+$\delta$: steering angle, $e_{heading}$: heading error, $e_{cte}$: cross-track error, $k=0.5$: gain, $v$: speed
+:::
+
+$$(\text{dist\_from\_path} < 2\text{m} \land \text{lane\_confidence} \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{dist\_from\_path} < 0.5\text{m} \land |\theta_{err}| < 15°)$$
+::: {.figure-caption}
+$\delta$: steering angle, $e_{heading}$: heading error, $e_{cte}$: cross-track error, $k=0.5$: gain, $v$: speed
+:::
 
 **Data Generation:**
 
