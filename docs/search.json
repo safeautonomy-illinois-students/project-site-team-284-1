@@ -4,14 +4,21 @@
     "href": "index.html",
     "title": "Passenger Pickup",
     "section": "",
-    "text": "A Simple Passenger Collection System\n\n\nAgastya Pawate1, Ethan Cao1, Hyunjun An1\n\n\n1 The University of Illinois Urbana Champaign\n\n\n Paper  arXiv  Video  Code  Data\nWe propose a solution which utilizes the GEM autonomous vehicle and its capabilities to traverse a track while avoiding obstacles on the way to a would-be passenger. The GEM vehicle will autonomously navigate to the passenger’s location after being called through a phone app.\nOur three team members will focus on the following tasks. Agastya will focus on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation. Ethan will focus on lane following algorithms, and system integration. Hyunjun will focus on the park-to-drive controller and global path planning.\nSo far, the team has visited the highbay 2 times to conduct real-world data collection and testing. We collected Rosbags of the stationary car, driving around the track, and people walking in front of a stationary car. We have tested lane detection, lane following, and obstacle detection.\nHere is a video of lane detection in the GEM simulator\nHere is a video of waypoint following in the GEM simulator\nHere is a video of testing lane detection in the GEM car\nHere is a video of controlling the GEM car with a gamepad\nHere is a video of testing obstacle detection in the GEM car"
+    "text": "A Simple Passenger Collection System\n\n\nAgastya Pawate1, Ethan Cao1, Hyunjun An1\n\n\n1 The University of Illinois Urbana Champaign\n\n\n Paper  arXiv  Video  Code  Data\nOur project utilizes the GEM autonomous vehicle to navigate a track, avoid obstacles, and autonomously reach a passenger after being summoned via a mobile app. To achieve this, we developed three primary subsystems:\nCurrently, the GEM e2 can successfully enter the track, navigate to its target, and reliably brake for obstacles until the path is clear.\nOur three team members focused on the following specific domains to achieve the project goals:\nKey Methods & Iterations:\nData Generation:\nasdf\nLane Follower Flowchart:\nasdfsda\nMilestones Achieved:\nWaypoint Generation (Lists vs. Graphs)\nObstacle Detection Metrics"
   },
   {
-    "objectID": "index.html#abstract",
-    "href": "index.html#abstract",
+    "objectID": "index.html#final-demo-video",
+    "href": "index.html#final-demo-video",
     "title": "Passenger Pickup",
-    "section": "Abstract",
-    "text": "Abstract"
+    "section": "Final Demo Video",
+    "text": "Final Demo Video"
+  },
+  {
+    "objectID": "index.html#introduction-system-overview",
+    "href": "index.html#introduction-system-overview",
+    "title": "Passenger Pickup",
+    "section": "Introduction & System Overview",
+    "text": "Introduction & System Overview"
   },
   {
     "objectID": "index.html#task-distribution",
@@ -21,38 +28,31 @@
     "text": "Task Distribution"
   },
   {
-    "objectID": "index.html#current-progress",
-    "href": "index.html#current-progress",
+    "objectID": "index.html#approach-methodology",
+    "href": "index.html#approach-methodology",
     "title": "Passenger Pickup",
-    "section": "Current Progress",
-    "text": "Current Progress"
+    "section": "Approach & Methodology",
+    "text": "Approach & Methodology"
   },
   {
-    "objectID": "index.html#what-didnt-work",
-    "href": "index.html#what-didnt-work",
+    "objectID": "index.html#results-milestones",
+    "href": "index.html#results-milestones",
     "title": "Passenger Pickup",
-    "section": "What Didn’t Work",
-    "text": "What Didn’t Work"
+    "section": "Results & Milestones",
+    "text": "Results & Milestones"
   },
   {
-    "objectID": "index.html#initial-simulator-setup",
-    "href": "index.html#initial-simulator-setup",
+    "objectID": "index.html#demonstrations",
+    "href": "index.html#demonstrations",
     "title": "Passenger Pickup",
-    "section": "Initial Simulator Setup",
-    "text": "Initial Simulator Setup"
-  },
-  {
-    "objectID": "index.html#results",
-    "href": "index.html#results",
-    "title": "Passenger Pickup",
-    "section": "Results",
-    "text": "Results\n\nProvide a brief description of the results shown below. Explain what the reader should observe and why it matters.\n\n\n\n\n\n\nResult 1 caption\n\n\n\n\n\n\n\nResult 2 caption\n\n\n\n\n\n\n\nResult 3 caption"
+    "section": "Demonstrations",
+    "text": "Demonstrations"
   },
   {
     "objectID": "index.html#bibtex",
     "href": "index.html#bibtex",
     "title": "Passenger Pickup",
     "section": "BibTeX",
-    "text": "BibTeX\n@article{team2842026finalproject,\n  author    = {Hyunjun An and Ethan Cao and Agastya Pawate},\n  title     = {Passenger Pickup},\n  journal   = {ECE 484: Safe Autonomy},\n  year      = {2026},\n}"
+    "text": "BibTeX\n@article{team2842026finalproject,\n  author    = {Hyunjun An and Ethan Cao and Agastya Pawate},\n  title     = {Passenger Pickup},\n  journal   = {ECE 484: Safe Autonomy},\n  year      = {2026}\n}"
   }
 ]

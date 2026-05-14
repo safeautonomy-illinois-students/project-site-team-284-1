@@ -110,6 +110,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -179,226 +208,177 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://arxiv.org/pdf/XXXX.XXXXX" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-file-pdf" aria-label="file-pdf"></i> Paper</span></a> <a href="https://arxiv.org/abs/XXXX.XXXXX" class="btn btn-primary"><span class="btn-text"><i class="fa-brands fa-arxiv" aria-label="arxiv"></i> arXiv</span></a> <a href="https://www.youtube.com/watch?v=cSQTZoZPJzs" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-video" aria-label="video"></i> Video</span></a> <a href="https://github.com/" class="btn btn-primary"><span class="btn-text"><i class="fa-brands fa-github" aria-label="github"></i> Code</span></a> <a href="https://example.com" class="btn btn-primary"><span class="btn-text"><i class="fa-solid fa-database" aria-label="database"></i> Data</span></a></p>
 </div>
 </section>
-<!-- ============================================================ -->
-<!-- TEASER IMAGE / VIDEO -->
-<!-- ============================================================ -->
 <div class="section-container">
 <div class="hero-teaser">
-<!-- Option A: Use a static image as the teaser -->
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="static/images/blockdiagram.png" class="teaser-img img-fluid figure-img"></p>
 <figcaption>A block diagram of the modules and required hardware for our project.</figcaption>
 </figure>
 </div>
-<!-- Option B: Embed a video teaser (uncomment below, comment out image above)
-
--->
 </div>
 </div>
-<!-- ============================================================ -->
-<!-- ABSTRACT -->
-<!-- ============================================================ -->
-<section id="abstract" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="abstract">Abstract</h2>
+<section id="final-demo-video" class="level2 section-title section-container">
+<h2 class="section-title anchored" data-anchor-id="final-demo-video">Final Demo Video</h2>
+<div class="video-container">
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/placeholder_final_demo.mp4"></video></div>
+</div>
 </section>
-<!-- Replace this text with your project abstract. Describe the problem you are
-solving, the key insight or contribution of your work, and the main results.
-Keep it concise — typically 150–250 words. You can use **bold** and *italic*
-formatting to emphasize key terms. -->
-<p>We propose a solution which utilizes the GEM autonomous vehicle and its capabilities to traverse a track while avoiding obstacles on the way to a would-be passenger. The GEM vehicle will autonomously navigate to the passenger’s location after being called through a phone app.</p>
-<!-- Experiments demonstrate that our
-approach outperforms existing methods by [metric improvement] while requiring
-[efficiency gain]. -->
-<section id="task-distribution" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="task-distribution">Task Distribution</h2>
+<section id="introduction-system-overview" class="level2 section-title">
+<h2 class="anchored" data-anchor-id="introduction-system-overview">Introduction &amp; System Overview</h2>
 </section>
-<p>Our three team members will focus on the following tasks. Agastya will focus on GPS coordinate data transmission from mobile devices, obstacle detection and distance estimation. Ethan will focus on lane following algorithms, and system integration. Hyunjun will focus on the park-to-drive controller and global path planning.</p>
-<section id="current-progress" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="current-progress">Current Progress</h2>
-</section>
-<p>So far, the team has visited the highbay 2 times to conduct real-world data collection and testing. We collected Rosbags of the stationary car, driving around the track, and people walking in front of a stationary car. We have tested lane detection, lane following, and obstacle detection.</p>
-<div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/GEM_Data_Collection.mov"></video></div>
-</div>
-<p>Here is a video of lane detection in the GEM simulator</p>
-<div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Sim_Lane_Detector.mov"></video></div>
-</div>
-<p>Here is a video of waypoint following in the GEM simulator</p>
-<div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Waypoint_Sim.mov"></video></div>
-</div>
-<p>Here is a video of testing lane detection in the GEM car</p>
-<div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Lane_Detector_Testing.mov"></video></div>
-</div>
-<p>Here is a video of controlling the GEM car with a gamepad</p>
-<div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video6" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Joystick_Driving_Test.mov"></video></div>
-</div>
-<p>Here is a video of testing obstacle detection in the GEM car</p>
-<div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video7" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Obstacle_Detector_Testing.mov"></video></div>
-</div>
-<section id="what-didnt-work" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="what-didnt-work">What Didn’t Work</h2>
-</section>
+<p>Our project utilizes the GEM autonomous vehicle to navigate a track, avoid obstacles, and autonomously reach a passenger after being summoned via a mobile app. To achieve this, we developed three primary subsystems:</p>
 <ul>
-<li>Initially, we tried to reuse the lane segmentation model trained for MP1 to detect lane lines. A mix of cropping and color masking was tried but ultimately did not produce great results. We will try both retraining the model on data from the highbay and using more complex solutions such as YOLO to consistently detect lane lines.</li>
+<li><strong>Lane Follower:</strong> Uses a neural network to mask lanes from camera feeds and fits polynomial lines to navigate the track.</li>
+<li><strong>Global Path Planner:</strong> Utilizes the vehicle’s GPS and odometry to generate and follow optimal waypoints to the target destination.</li>
+<li><strong>Obstacle Detector:</strong> Processes LiDAR point clouds along the generated path to predict and prevent collisions.</li>
 </ul>
-<div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video8" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Lane_Follower_Test.mov"></video></div>
-</div>
-<ul>
-<li><p>To avoid the complexity of interfacing with the PACMod, our code outputs joystick commands on the /joy topic. While this does work to control the car (see video below), we found that the lack of closed loop control made the speed of the car uncontrollable. Most of the time, the car would either be too fast or not move at all. We are working on a PID controller to control the speed of the car.</p></li>
-<li><p>We found that more complex nodes were difficult to develop, as contributors needed to comb through lots of code to understand what was going on within a node. Our team decided to leverage the modular nature of ROS to divide complex problems into multiple nodes. Smaller, less complex nodes allow for easier collaboration, and greater code clarity.</p></li>
-</ul>
-<div class="section-container">
-<section id="initial-simulator-setup" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="initial-simulator-setup">Initial Simulator Setup</h2>
-<div class="video-container">
-<div class="quarto-video"><video id="video_shortcode_videojs_video9" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/mp2.webm"></video></div>
-</div>
+<p>Currently, the GEM e2 can successfully enter the track, navigate to its target, and reliably brake for obstacles until the path is clear.</p>
+<section id="task-distribution" class="level2 section-title">
+<h2 class="anchored" data-anchor-id="task-distribution">Task Distribution</h2>
 </section>
-<!-- ============================================================ -->
-<!-- RESULTS GALLERY -->
-<!-- ============================================================ -->
-<section id="results" class="level2 section-title section-container">
-<h2 class="section-title anchored" data-anchor-id="results">Results</h2>
-<div class="content-text">
-<p>Provide a brief description of the results shown below. Explain what the reader should observe and why it matters.</p>
+<p>Our three team members focused on the following specific domains to achieve the project goals:</p>
+<ul>
+<li><strong>Agastya:</strong> GPS coordinate data transmission from mobile devices, obstacle detection, and distance estimation.</li>
+<li><strong>Ethan:</strong> Lane following algorithms and overall system integration.</li>
+<li><strong>Hyunjun:</strong> Park-to-drive controller and global path planning.</li>
+</ul>
+<section id="approach-methodology" class="level2 section-title">
+<h2 class="anchored" data-anchor-id="approach-methodology">Approach &amp; Methodology</h2>
+</section>
+<p><strong>Key Methods &amp; Iterations:</strong></p>
+<ul>
+<li><strong>Lane Detection Iterations:</strong> We initially attempted to reuse an MP1 lane segmentation model using basic cropping and color masking, which proved unreliable. We have since trained a new neural network using real and generated data, and are considering more complex solutions such as YOLO to consistently detect lane lines.</li>
+<li><strong>Control Systems:</strong> To avoid the complexity of interfacing with the PACMod, our code initially outputted joystick commands on the <code>/joy</code> topic. Due to a lack of closed-loop control, speed was highly erratic, causing the car to move too fast or not at all. We resolved this by implementing a closed-loop PID controller to regulate vehicle speed smoothly.</li>
+<li><strong>Node Modularity:</strong> We found that complex nodes were difficult to develop, as contributors needed to comb through lots of code to understand what was going on. Our team decided to leverage the modular nature of ROS to divide complex problems into multiple smaller nodes, allowing for easier collaboration and greater code clarity.</li>
+<li><strong>Centralized Control Hierarchy:</strong> Another issue we encountered was the controller detecting obstacles but failing to brake due to a lack of a centralized “stop” topic, meaning driver input could partially override stop commands. We centralized all our submodules’ data into common topics that can be read from, allowing us to implement a priority hierarchy for our system.</li>
+<li><strong>Dynamic Obstacle Safety Region:</strong> The controller occasionally detected nearby obstacles, such as buildings, despite the path not intersecting with them. We fixed this by turning the obstacle detector’s unsafety region into a region bounded by quadratics fitted to the upcoming waypoints from the global path planner, ensuring the GEM e2 only halts for obstacles directly in its path.</li>
+<li><strong>Waypoint Graph Generation &amp; Path Planning:</strong> We transferred our list of waypoints into a graph to better support bi-directional, optimal path generation. The graph is undirected and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation). Our path planner is based on Dijkstra’s algorithm, chosen because the small number of nodes results in minimal computation time difference with other algorithms (A*), while remaining optimal and simple to implement. To account for heading-aware planning, we made the planner to only consider a path that can be achieved by current heading by giving penalty (cost of 500m) if it tries to generate unachievable path. Planner also publishes <code>/next_turn</code> to determine which lane to follow at junctions.</li>
+<li><strong>Park to Drive controller and path follower:</strong> Park-to-drive is capable of driving from an arbitrary parking spot onto the track. Stanley controller is selected as it can account for both cross-track error and heading error at the same time. Once the vehicle joins the track (<span class="math inline">\((\text{dist_from_path} &lt; 2\text{m} \land \text{lane_confidence} \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{dist_from_path} &lt; 0.5\text{m} \land |\heading_{err}| &lt; 15°)\)</span>), control is delegated to the lane follower (pure pursuit-based).</li>
+</ul>
+<p><strong>Data Generation:</strong></p>
+<p>asdf</p>
+<p><strong>Lane Follower Flowchart:</strong></p>
+<p>asdfsda</p>
+<section id="results-milestones" class="level2 section-title">
+<h2 class="anchored" data-anchor-id="results-milestones">Results &amp; Milestones</h2>
+</section>
+<p><strong>Milestones Achieved:</strong></p>
+<ol type="1">
+<li><strong>Simulator:</strong> Successfully tested lane following, path planning, park to drive, and drive to park in the GEM Simulator.</li>
+<li><strong>Hardware Actuation:</strong> Successfully controlled the physical GEM car via ackermann commands using our ROS nodes.</li>
+<li><strong>Hardware Perception:</strong> Successfully integrated lane detection, park to drive, global path planning, and LiDAR obstacle detection on the physical GEM vehicle. ::: ### Quantitative Data</li>
+</ol>
+<p><strong>Waypoint Generation (Lists vs.&nbsp;Graphs)</strong></p>
+<div class="results-grid">
+<div class="result-card">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="static/images/real_waypoints.png" class="img-fluid figure-img"></p>
+<figcaption>Real-world waypoints generated from GPS data (list implementation)</figcaption>
+</figure>
+</div>
+</div>
+<div class="result-card">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="static/images/sim_waypoint_map.png" class="img-fluid figure-img"></p>
+<figcaption>Simulation waypoints generated from simulation odometry data (list implementation)</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <div class="results-grid">
 <div class="result-card">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="static/images/placeholder-result1.svg" class="img-fluid figure-img"></p>
-<figcaption>Result 1 caption</figcaption>
+<p><img src="static/images/real_waypoint_graph.png" class="img-fluid figure-img"></p>
+<figcaption>Real-world waypoints generated from GPS data (graph implementation)</figcaption>
 </figure>
 </div>
 </div>
 <div class="result-card">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="static/images/placeholder-result2.svg" class="img-fluid figure-img"></p>
-<figcaption>Result 2 caption</figcaption>
+<p><img src="static/images/sim_waypoint_graph.png" class="img-fluid figure-img"></p>
+<figcaption>Simulation waypoints generated from simulation odometry data (graph implementation)</figcaption>
 </figure>
 </div>
 </div>
-<div class="result-card">
+</div>
+<p><strong>Obstacle Detection Metrics</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="static/images/placeholder-result3.svg" class="img-fluid figure-img"></p>
-<figcaption>Result 3 caption</figcaption>
+<p><img src="static/images/data.png" class="img-fluid figure-img"></p>
+<figcaption>Comparison of non-pedestrian vs pedestrian LIDAR ROSBAGS with respect to number of obstacle points detected.</figcaption>
 </figure>
 </div>
+<section id="demonstrations" class="level2 section-title">
+<h2 class="anchored" data-anchor-id="demonstrations">Demonstrations</h2>
+</section>
+<section id="hardware-demonstrations" class="level3">
+<h3 class="anchored" data-anchor-id="hardware-demonstrations">Hardware Demonstrations</h3>
+<div class="video-container">
+<p>
+<b>Data Collection &amp; Waypoint Generation: </b> Highbay testing to map GPS data to real-world waypoints.
+</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video2" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/GEM_Data_Collection.mov"></video></div>
 </div>
+<div class="video-container">
+<p>
+<b>Lane Detection on GEM:</b> Real-time hardware testing of the perception stack.
+</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video3" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Lane_Detector_Testing.mov"></video></div>
+</div>
+<div class="video-container">
+<p>
+<b>Obstacle Detection on GEM:</b> Verifying LiDAR point cloud processing.
+</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video4" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Obstacle_Detector_Testing.mov"></video></div>
+</div>
+<div class="video-container">
+<p>
+<b>Joystick Driving Test:</b> Controlling the GEM car with a gamepad.
+</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video5" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Joystick_Driving_Test.mov"></video></div>
+</div>
+<div class="video-container">
+<p>
+<b>Failed Lane Follower Test:</b> Previous iteration showing inconsistent lane tracking before improvements.
+</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video6" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Lane_Follower_Test.mov"></video></div>
 </div>
 </section>
-<!-- ============================================================ -->
-<!-- QUALITATIVE COMPARISONS -->
-<!-- ============================================================ -->
-<!-- ::: {.section-container}
-
-## Qualitative Comparisons {.section-title}
-
-::: {.content-text}
-Describe the comparison setup — which baselines are you comparing against, and
-what should the reader look for in the side-by-side results.
-:::
-
-::: {.comparison-grid}
-
-::: {.comparison-item}
-![Ours](static/images/placeholder-ours.svg)
-
-**Ours**
-:::
-
-::: {.comparison-item}
-![Baseline A](static/images/placeholder-baseline.svg)
-
-**Baseline A**
-:::
-
-:::
-
-::: -->
-<!-- ============================================================ -->
-<!-- INTERACTIVE SLIDER (Optional) -->
-<!-- ============================================================ -->
-<!-- ::: {.section-container}
-
-## Interpolation Demo {.section-title}
-
-::: {.content-text}
-If your method supports interpolation or continuous control, you can add an
-interactive slider here. The example below shows how to set one up.
-:::
-
-::: {.interpolation-panel}
-
-::: {.interpolation-endpoints}
-![Start](static/images/placeholder-start.svg){.endpoint-img}
-
-![End](static/images/placeholder-end.svg){.endpoint-img}
-:::
-
-<input type="range" min="0" max="100" value="50" class="interpolation-slider" id="interpolation-slider">
-<div id="interpolation-value" class="interpolation-value">50%</div>
-
-<script>
-  const slider = document.getElementById('interpolation-slider');
-  const display = document.getElementById('interpolation-value');
-  slider.addEventListener('input', function() {
-    display.textContent = this.value + '%';
-  });
-</script>
-
-:::
-
-::: -->
-<!-- ============================================================ -->
-<!-- RELATED WORK -->
-<!-- ============================================================ -->
-<!-- ::: {.section-container}
-
-## Related Work {.section-title}
-
-::: {.content-text}
-
-Here are some related works in this area:
-
-- [Related Paper 1](https://example.com) introduces an idea similar to ours for [topic].
-- [Related Paper 2](https://example.com) also addresses [problem] using [approach].
-- [Related Paper 3](https://example.com) proposes [technique] which is complementary to our method.
-
-Check out [this survey](https://example.com) for a comprehensive overview of the field.
-:::
-
-::: -->
-<!-- ============================================================ -->
-<!-- BIBTEX -->
-<!-- ============================================================ -->
+<section id="software-simulation-demonstrations" class="level3">
+<h3 class="anchored" data-anchor-id="software-simulation-demonstrations">Software / Simulation Demonstrations</h3>
+<div class="video-container">
+<p>
+<b>Simulated Lane Detection:</b>
+</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video7" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/Sim_Lane_Detector.mov"></video></div>
+</div>
+<div class="video-container">
+<p>
+<b>LiDAR Obstacle Detection (RViz):</b> Visualizing the ROSBAG data collected.
+</p>
+<div class="quarto-video"><video id="video_shortcode_videojs_video8" class="video-js vjs-default-skin vjs-big-play-centered vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="static/videos/lidar.webm"></video></div>
+</div>
+<p>:::</p>
+</section>
 <section id="bibtex" class="level2 section-title section-container">
 <h2 class="section-title anchored" data-anchor-id="bibtex">BibTeX</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">team2842026finalproject</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>    = {Hyunjun An and Ethan Cao and Agastya Pawate},</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>     = {Passenger Pickup},</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>   = {ECE 484: Safe Autonomy},</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>      = {2026},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>      = {2026}</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<!-- ============================================================ -->
-<!-- FOOTER -->
-<!-- ============================================================ -->
 <div class="site-footer">
-<p>This website template is adapted from the <a href="https://nerfies.github.io">Nerfies</a> project page, which is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+<p>This website template is adapted from the Nerfies project page, which is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.</p>
 </div>
 
 
-</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -810,7 +790,6 @@ Check out [this survey](https://example.com) for a comprehensive overview of the
 <script>videojs(video_shortcode_videojs_video6);</script>
 <script>videojs(video_shortcode_videojs_video7);</script>
 <script>videojs(video_shortcode_videojs_video8);</script>
-<script>videojs(video_shortcode_videojs_video9);</script>
 
 
 

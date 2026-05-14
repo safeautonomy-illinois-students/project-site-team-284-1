@@ -65,8 +65,8 @@ A Simple Passenger Collection System
 :::
 
 
-::: {.section-container}
-## Introduction & System Overview {.section-title}
+:::  {.section-title}
+## Introduction & System Overview
 :::
 
 Our project utilizes the GEM autonomous vehicle to navigate a track, avoid obstacles, and autonomously reach a passenger after being summoned via a mobile app. To achieve this, we developed three primary subsystems:
@@ -77,8 +77,8 @@ Our project utilizes the GEM autonomous vehicle to navigate a track, avoid obsta
 
 Currently, the GEM e2 can successfully enter the track, navigate to its target, and reliably brake for obstacles until the path is clear.
 
-::: {.section-container}
-## Task Distribution {.section-title}
+:::  {.section-title}
+## Task Distribution
 :::
 
 Our three team members focused on the following specific domains to achieve the project goals:
@@ -87,8 +87,8 @@ Our three team members focused on the following specific domains to achieve the 
 - **Ethan:** Lane following algorithms and overall system integration.
 - **Hyunjun:** Park-to-drive controller and global path planning.
 
-::: {.section-container}
-## Approach & Methodology {.section-title}
+::: {.section-title}
+## Approach & Methodology 
 :::
 
 **Key Methods & Iterations:**
@@ -108,16 +108,25 @@ We created a graph of waypoints to better support bi-directional, optimal path g
 Park-to-drive is capable of driving from an arbitrary parking spot onto the track. Stanley controller is selected as it can account for both cross-track error and heading error at the same time. Once the vehicle joins the track ($(\text{dist_from_path} < 2\text{m} \land \text{lane_confidence} \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{dist_from_path} < 0.5\text{m} \land |\theta_{err}| < 15°)$), control is delegated to the lane follower (pure pursuit-based).
 
 
-::: {.section-container}
-## Results & Milestones {.section-title}
-:::
 
+**Data Generation:**
+
+asdf
+
+**Lane Follower Flowchart:**
+
+asdfsda
+
+
+::: {.section-title}
+## Results & Milestones 
+:::
 **Milestones Achieved:**
 
 1. **Simulator:** Successfully tested lane following, path planning, park to drive, and drive to park in the GEM Simulator.
 2. **Hardware Actuation:** Successfully controlled the physical GEM car via ackermann commands using our ROS nodes.
 3. **Hardware Perception:** Successfully integrated lane detection, park to drive, global path planning, and LiDAR obstacle detection on the physical GEM vehicle.
-
+:::
 ### Quantitative Data
 
 **Waypoint Generation (Lists vs. Graphs)**
@@ -145,13 +154,13 @@ Park-to-drive is capable of driving from an arbitrary parking spot onto the trac
 ![Comparison of non-pedestrian vs pedestrian LIDAR ROSBAGS with respect to number of obstacle points detected.](static/images/data.png)
 
 
-::: {.section-container}
-## Demonstrations {.section-title}
-
+::: {.section-title}
+## Demonstrations 
+:::
 ### Hardware Demonstrations
 
 ::: {.video-container}
-Data Collection & Waypoint Generation: Highbay testing to map GPS data to real-world waypoints.
+<p><b>Data Collection & Waypoint Generation: </b> Highbay testing to map GPS data to real-world waypoints.</p>
 {{< video static/videos/GEM_Data_Collection.mov >}}
 :::
 
