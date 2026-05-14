@@ -106,9 +106,9 @@ Our three team members focused on the following specific domains to achieve the 
 
 **Milestones Achieved:**
 
-1. **Simulator:** Successfully tested lane following, path planning, and park to drive in the GEM Simulator.
+1. **Simulator:** Successfully tested lane following, path planning, park to drive, and drive to park in the GEM Simulator.
 2. **Hardware Actuation:** Successfully controlled the physical GEM car via ackermann commands using our ROS nodes.
-3. **Hardware Perception:** Successfully ran lane detection, park to drive, global path planning, and LiDAR obstacle detection on the physical GEM vehicle.
+3. **Hardware Perception:** Successfully integrated lane detection, park to drive, global path planning, and LiDAR obstacle detection on the physical GEM vehicle.
 
 ### Quantitative Data
 
