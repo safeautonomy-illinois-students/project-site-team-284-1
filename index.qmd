@@ -59,7 +59,7 @@ A Simple Passenger Collection System
 ## Final Demo Video {.section-title}
 
 ::: {.video-container}
-{{< video static/videos/placeholder_final_demo.mp4 >}}
+{{< video https://youtu.be/vP3jEX__Vwo >}}
 :::
 
 :::
