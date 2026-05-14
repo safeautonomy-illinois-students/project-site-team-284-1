@@ -101,7 +101,7 @@ Our three team members focused on the following specific domains to achieve the 
  
 **Waypoint Graph Generation & Path Planning** 
 
-We transferred our list of waypoints into a graph to better support bi-directional, optimal path generation. The graph is undirected and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation). Our path planner is based on Dijkstra's algorithm, chosen because the small number of nodes results in minimal computation time difference with other algorithms (A*), while remaining optimal and simple to implement. To account for heading-aware planning, we made the planner to only consider a path that can be achieved by current heading by giving penalty (cost of 500m) if it tries to generate unachievable path. Planner also publishes `/next_turn` to determine which lane to follow at junctions. 
+We created a graph of waypoints to better support bi-directional, optimal path generation. The graph is undirected and uses the real distance between nodes as edge weights. Waypoints are sampled at ~1m intervals, resulting in 163 nodes (real world) and 318 nodes (simulation). Our path planner is based on Dijkstra's algorithm, chosen because the small number of nodes results in minimal computation time difference with other algorithms (A*), while remaining optimal and simple to implement. To account for heading-aware planning, we made the planner to only consider a path that can be achieved by current heading by giving penalty (cost of 500m) if it tries to generate unachievable path. Planner also publishes `/next_turn` to determine which lane to follow at junctions. 
 
 **Park to Drive controller and path follower** 
 
