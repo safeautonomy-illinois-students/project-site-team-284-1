@@ -218,7 +218,7 @@ For each point in the list of waypoints, we calculate the above value as an appr
 
 **Milestones Achieved:**
 
-1. **Simulator:** Successfully tested lane following, path planning, park to drive, and drive to park in the GEM Simulator.
+1. **Simulator:** Successfully tested lane following, path planning, park to drive, and drive to park in the GEM Simulator. Fully integrated system from park-to-drive to passenger, passenger to destination, destination to drive-to-park works (video at the end of the website).
 2. **Hardware Actuation:** Successfully controlled the physical GEM car via ackermann commands using our ROS nodes.
 3. **Hardware Perception:** Successfully integrated lane detection, park to drive, global path planning, and LiDAR obstacle detection on the physical GEM vehicle.
 
