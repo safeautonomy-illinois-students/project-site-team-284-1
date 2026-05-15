@@ -155,6 +155,8 @@ $$(\text{d} < 2\text{m} \land c \geq 0.9 \land t \geq 0.5\text{s}) \lor (\text{d
 $\text{d}$: distance from vehicle to current nearest path waypoint, $c$: lane detection confidence score, $t$: duration above threshold, $e_{heading}$: heading error
 :::
 
+![Park to Drive Experimental Result](static/images/real_p2d_runs.png)
+
 **Drive to Park Controller (in progress)**
 
 Drive-to-Park returns the vehicle to the parking spot after passenger pickup. It is activated via `/activate_parking` and runs a two-phase controller:
@@ -169,8 +171,6 @@ $L=1.75$ m: wheelbase, $\alpha$: angle to lookahead waypoint, $d_{la}$: lookahea
 
 **PARK** — Drives straight ($\delta = 0$) along the axis to the exact parking coordinate with linear speed ramp-down from 4 m. Completes when $\text{dist} < 0.35\text{m} \land |e_{heading}| < 5°$.
 
-
-![Park to Drive Experimental Result](static/images/real_p2d_runs.png)
 
 **Data Generation:**
 
