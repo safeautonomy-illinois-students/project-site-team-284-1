@@ -138,6 +138,28 @@ Our path planner is based on Dijkstra's algorithm, chosen because the small numb
 
 :::
 
+**Obstacle Detector**
+The obstacle detector is capable of detecting obstacles with the approximate size of a human or a stop sign. We had two iterations for this module: V1 and V2.
+
+**Obstacle Detector V1**
+
+V1 of our obstacle detector utilized LIDAR to detect obstacles within a certain region in front of the GEM. We determined this optimized region by recording a ROSBAG of one of our teammates walking directly in front of the car and repeatedly running our algorithm on the ROSBAG data until satisfactory results were produced. 
+
+**Obstacle Detector V2**
+
+To further test version 1 of our algorithm, we recorded a ROSBAG with motion over the whole track and ran the obstacle detector on that. We soon encountered a significant issue: since the car had a fixed unsafety region in front of it, false positives would be thrown if the car happened to be pointed towards any building or foliage regardless of whether the path intersected with the obstacle or not. 
+
+To fix this, we quadratically fitted the unsafety region to the path planner waypoints for version 2 of our algorithm. This produced far better results than version 1. For example, a full ROSBAG run around the whole track generated zero false positives with our new algorithm.
+
+**Curve-Fitting Logic**
+
+Our curve-fitting logic first uses np.polyfit() to fit a quadratic curve to the first six path waypoints in front of the GEM.
+
+The derivative of a quadratic in general form is given by the equation below.
+
+$$2ax+b$$
+
+For each point in the list of waypoints, we calculate the above value as an approximation of the heading of the car at that point. We then take the inverse of this vector to get a new vector that is perpendicular to the heading. Using this new vector, we generate two offset groups of points on either side of the main path and fit new quadratics to these. Detecting an obstacle based on these equations is trivial, since we simply figure out whether the coordinates of a given LIDAR point fall between the two bounding quadratic equations.
 
 **Park to Drive Controller** 
 
