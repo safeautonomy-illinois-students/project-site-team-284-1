@@ -47,7 +47,7 @@ A Simple Passenger Collection System
 
 ::: {.hero-teaser}
 
-![A block diagram of the modules and workflow of our project.](static/images/logic_flow.png){.teaser-img}
+![A block diagram of the modules and workflow of our project.](static/images/logic_flow.png){.teaser-img width="150%"}
 
 :::
 
